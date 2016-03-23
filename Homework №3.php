@@ -53,7 +53,9 @@ $selected = array_pop($date);
 echo 'Dates format:' .date ('d.m.y. H:i:s',$selected);
 
 //Выставляем часовой пояс для Нью-Йорка и проверяем,что часовой пояс был иизменен
-echo '<p>'; 
-echo 'Time zone:' .date_default_timezone_set('America/New_York');
+echo '<p>';
+echo 'Time zone before changes: '.date_default_timezone_get(); 
+echo '<p>';
+echo 'Time zone after changes: ' .date_default_timezone_set('America/New_York');
 echo date_default_timezone_get();
 ?>
