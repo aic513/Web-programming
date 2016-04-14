@@ -1,4 +1,4 @@
-<title>Купи слона</title>
+﻿<title>Купи слона</title>
 <h1 align="center"><strong>Доска объявлений</strong></h1>
 <form style="margin-left: 30%;" method="post">
     <div class="personal">

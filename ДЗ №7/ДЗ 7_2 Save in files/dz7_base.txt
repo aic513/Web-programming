@@ -1,0 +1,1 @@
+a:1:{i:0;a:11:{s:6:"privat";s:1:"1";s:11:"seller_name";s:5:"Denis";s:5:"email";s:16:"aic513@yandex.ru";s:5:"phone";s:13:"+795333333333";s:11:"location_id";s:6:"641680";s:11:"category_id";s:2:"14";s:5:"title";s:12:"Ïנטךמכ";s:11:"description";s:32:"שששששששששששששששש";s:5:"price";s:0:"";s:11:"confirm_add";s:37:"Äמבאגטעü מבתÿגכוםטו";s:4:"id_r";s:0:"";}}

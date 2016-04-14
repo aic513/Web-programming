@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
     function print_form($print_ad=0){                           // функция вывода формы
         if (isset($print_ad['id'])){                            // если имеется метка с номер для редактирования изменяем название кнопки Добавить на Сохранить
@@ -99,21 +99,20 @@ $categorys = parse_ini_string($categorys_string, true);
 }
                 
     function del_ad($id){                                       // Функция удаления объявления
-        global $ad_cookie;
-        unset($ad_cookie[$id]);
+        global $add;
+        unset($add[$id]);
     }
     
-    function show_all($ad_cookie){                                        // Функция вывода всех объявлений из $_SESSION
-    if (!empty($ad_cookie)){
-        foreach ($ad_cookie as $num => $ad) {
+    function show_all($add){                                        // Функция вывода всех объявлений из $add
+    if (!empty($add)){
+        foreach ($add as $num => $ad) {
             echo "<div align='left'><a href='$_SERVER[SCRIPT_NAME]?click_id=$num'>".($num+1).") {$ad['title']}  </a> |   Цена: {$ad['price']} | Продавец: {$ad['seller_name']} | <a href='$_SERVER[SCRIPT_NAME]?del_ad=$num'>Удалить</a><br>";
         }
     }
     }
 
-function save_for_ad_cookie($ad_cookie){                                    // функция сохранения объявлений в куки
-    setcookie('dz7_base.txt', serialize($ad_cookie));
-    setcookie('ad_cookie', serialize($ad_cookie), time()-10000);
+function save_for_add($add){                                    // функция сохранения объявлений в файле
+    file_put_contents('dz7_base.txt', serialize($add));
 }
 
     function restart(){                                         // функция перезапуска скрипта
