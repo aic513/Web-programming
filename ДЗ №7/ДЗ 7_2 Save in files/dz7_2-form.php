@@ -55,12 +55,12 @@
         <label id="price_lbl" for="fld_price">Цена</label>
         <input type="text" maxlength="9" value="<?php echo $print_ad[price] ?>" name="price" id="fld_price">&nbsp;<span id="fld_price_title">руб.</span>
     </div>
-    <input type="submit" value="<?php echo $ad_edit ?> объявление" id="form_submit" name="confirm_add">
+   <input type="submit" value="<?php echo isset($_GET['click_id']) ? 'Сохранить' : 'Добавить' ?> объявление" id="form_submit" name="confirm_add">
     <input type="submit" value="Очистить форму" id="form_submit" name="clear_form">
     <div class="clean">
-        <input <?php echo $hide_back ?> type="submit" value="Назад" id="enter_id" name="back">
+        <input <?php echo isset($_GET['click_id']) ? '' : 'hidden=""' ?> type="submit" value="Назад" id="enter_id" name="back"
         <input type="submit" value="Очистить базу объявлений" id="clear_SESSION" name="clear_base">
     </div>
-    <input type=hidden name=id_r value=<?php echo $print_ad[id] ?>>
+     <input type=hidden name=id_r value=<?php echo isset($_GET['click_id']) ? $_GET['click_id']:'' ?>>
 </form>
 <hr>

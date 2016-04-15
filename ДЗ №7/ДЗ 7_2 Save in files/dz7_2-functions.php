@@ -1,14 +1,7 @@
 ﻿<?php
-
     function print_form($print_ad=0){                           // функция вывода формы
-        if (isset($print_ad['id'])){                            // если имеется метка с номер для редактирования изменяем название кнопки Добавить на Сохранить
-            $ad_edit = 'Сохранить';
-        }
-        else {
-            $ad_edit = 'Добавить';
-            $hide_back = 'hidden=""';
-        }
-        require_once("dz7_2-form.php");                                 // подключаем файл с HTML формой
+                            
+           require_once("dz7_2-form.php");                                 // подключаем файл с HTML формой
     }
     
     function show_city_block($city_code=''){                    // функция вывода блока с выбором города
@@ -86,9 +79,7 @@
 [Для бизнеса]
 116 = Готовый бизнес;
 40 = Оборудование для бизнеса;';
-
 $categorys = parse_ini_string($categorys_string, true);
-
         foreach($categorys as $subcat_code=>$subcategorys){
             echo '<optgroup label="' . $subcat_code . '">';
             foreach ($subcategorys as $code => $category) {
@@ -110,11 +101,9 @@ $categorys = parse_ini_string($categorys_string, true);
         }
     }
     }
-
 function save_for_add($add){                                    // функция сохранения объявлений в файле
     file_put_contents('dz7_base.txt', serialize($add));
 }
-
     function restart(){                                         // функция перезапуска скрипта
         header("Location: $_SERVER[SCRIPT_NAME]");
         exit;
