@@ -1,11 +1,35 @@
-﻿<?php
+<?php
 
-//error_reporting(E_ALL | E_STRICT);      Если запускаю в нетбинсе-ошибки ее выводятся,если в шторме,то появляются
+//error_reporting(E_ALL | E_STRICT);      Если запускаю в нетбинсе-ошибки не выводятся,если в шторме,то появляются
 //ini_set('display_errors', 1);
 header("Content-Type: text/html; charset=utf-8");
+
+$project_root = $_SERVER['DOCUMENT_ROOT'];
+$smarty_dir = $project_root.'/Smarty/';
 require_once("dz8-functions.php");                              // подключаем файл с функциями
+require_once ("dz8-data.php");                                  //подключаем файл с городами и категориями
+// подключаем smarty
+$smarty_dir = 'Smarty/';
+require($smarty_dir.'libs/Smarty.class.php');
+$smarty = new Smarty();
+    
+$smarty->compile_check = TRUE;
+$smarty->debugging = FALSE;
+    
+$smarty->template_dir = $smarty_dir.'templates/';
+$smarty->compile_dir = $smarty_dir.'templates_c/';
+$smarty->cache_dir = $smarty_dir.'cache/';
+$smarty->config_dir = $smarty_dir.'configs/';
+
+//передаем 'имя переменной' и 'значение'
+$smarty->assign('title', 'Наше объявление');
+$smarty->assign('citys', $citys);
+$smarty->assign('categorys', $categorys);
+
+
+
+ $add = array();                                                     //сразу присваеиваем массив переменной $add
 if (file_exists('dz8_base.txt')) {                                  // если такой файл существует
-    $add = array();                                                 //сразу присваиваем массив
     $add = unserialize(file_get_contents('dz8_base.txt'));        // расшифровываем данные и записываем их в $add
 }
 
@@ -41,12 +65,13 @@ if (isset($_POST['confirm_add'])) {                            // кнопка �
 } elseif (isset($_GET['click_id'])) {                          // действие по клику на объявление
     $click_id = (int) $_GET['click_id'];                     // присваиваем переменной $click_id номер кликнутого объявления
     if (isset($add[$click_id])) {                             // если объявление такое существует
-        print_form($add[$click_id]);                    // выводим в форму 
+        print_form($smarty,$add,$add[$click_id]);                    // выводим в форму 
     }
     
     
 } else {
-    print_form();                                           // иначе выводим пустую форму
+    print_form($smarty, $add);                                           // иначе выводим пустую форму
     show_all($add);
 }
+
 ?>

@@ -1,24 +1,10 @@
-﻿<?php
-    function print_form($print_ad=0){                           // функция вывода формы
-                            
-           require_once("dz8-form.php");                                 // подключаем файл с HTML формой
+<?php
+    function print_form($smarty,$add,$print_ad=0){                           // функция вывода формы
+      $smarty->assign('print_ad', $print_ad);
+      $smarty->assign('add', $add);
+      $smarty->display('dz8-form.tpl');          
     }
     
-    function selected($name, $id = 0){               // выводим селектор с городами и категориями
-        foreach($name as $key => $value){
-            if(is_array($value)){
-                echo "<optgroup label='$key'>";
-                selected($value,$id);
-                echo '</optgroup>';
-            }else{
-                $selected = ( $id == $key )? 'selected' : '';
-                echo '<option '.$selected.' value='.(int)$key.'>'.$value.'</option>';
-            }
-        }
-    }
-    
-   
-                
     function del_ad($id){                                       // Функция удаления объявления
         global $add;
         unset($add[$id]);
