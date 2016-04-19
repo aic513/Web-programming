@@ -1,4 +1,7 @@
-﻿<title>Купи слона</title>
+﻿<?php
+require_once ('dz8-data.php');
+?>
+<title>Купи слона</title>
 <h1 align="center"><strong>Доска объявлений</strong></h1>
 <form style="margin-left: 30%;" method="post">
     <div class="personal">
@@ -30,14 +33,18 @@
         <select title="Выберите Ваш город" name="location_id" id="region" class="form-control">
             <option value="">-- Выберите город --</option>
             <option disabled="disabled">-- Города --</option>
-            <?php echo show_city_block($print_ad[location_id]); ?>
+            
+           <?php echo selected($citys,$print_ad['location_id']); ?>
+            
         </select>
     </div>
     <div class="form-group__category">
         <label for="fld_category_id" class="form-label">Категория</label>
         <select title="Выберите категорию объявления" name="category_id" id="fld_category_id" class="form-input-select">
             <option value="">-- Выберите категорию --</option>
-            <?php echo show_category_block($print_ad[category_id]); ?>
+            
+            <?php echo selected($categorys,$print_ad['category_id']); ?>
+            
         </select>
     </div>
     <div id="f_title">
