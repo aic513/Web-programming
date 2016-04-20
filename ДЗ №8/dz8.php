@@ -1,7 +1,7 @@
 <?php
 
-//error_reporting(E_ALL | E_STRICT);      Если запускаю в нетбинсе-ошибки не выводятся,если в шторме,то появляются
-//ini_set('display_errors', 1);
+error_reporting(E_ALL | E_STRICT);      
+ini_set('display_errors', 1);
 header("Content-Type: text/html; charset=utf-8");
 
 $project_root = $_SERVER['DOCUMENT_ROOT'];
@@ -71,7 +71,7 @@ if (isset($_POST['confirm_add'])) {                            // кнопка �
     
 } else {
     print_form($smarty, $add);                                           // иначе выводим пустую форму
-    show_all($add);
+    
 }
 
 ?>

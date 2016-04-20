@@ -60,4 +60,7 @@
     <input type=hidden name=id_r value={if isset($smarty.get.click_id)}{$smarty.get.click_id}{/if}>
 </form>
 <hr>
+ {if !isset($smarty.get.click_id)}                   {*если кликнули по объявлению- прячем список объявлений*}
+        {include file='show_all.tpl'}
+    {/if}
 {include file='footer.tpl'}

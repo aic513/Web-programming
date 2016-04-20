@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.25-dev, created on 2016-04-20 00:36:45
+<?php /* Smarty version 2.6.25-dev, created on 2016-04-21 00:33:57
          compiled from dz8-form.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('function', 'html_options', 'dz8-form.tpl', 33, false),)), $this); ?>
@@ -77,6 +77,12 @@ unset($_smarty_tpl_vars);
 <?php endif; ?>>
 </form>
 <hr>
+ <?php if (! isset ( $_GET['click_id'] )): ?>                           <?php $_smarty_tpl_vars = $this->_tpl_vars;
+$this->_smarty_include(array('smarty_include_tpl_file' => 'show_all.tpl', 'smarty_include_vars' => array()));
+$this->_tpl_vars = $_smarty_tpl_vars;
+unset($_smarty_tpl_vars);
+ ?>
+    <?php endif; ?>
 <?php $_smarty_tpl_vars = $this->_tpl_vars;
 $this->_smarty_include(array('smarty_include_tpl_file' => 'footer.tpl', 'smarty_include_vars' => array()));
 $this->_tpl_vars = $_smarty_tpl_vars;

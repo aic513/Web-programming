@@ -1,1 +1,1 @@
-a:1:{i:0;a:11:{s:6:"privat";s:1:"1";s:11:"seller_name";s:10:"Денис";s:5:"email";s:14:"aic513@mail.ru";s:5:"phone";s:11:"89533333333";s:11:"location_id";s:6:"641600";s:11:"category_id";s:2:"81";s:5:"title";s:8:"вода";s:11:"description";s:12:"привет";s:5:"price";s:3:"425";s:11:"confirm_add";s:36:"Добавитьобъявление";s:4:"id_r";s:0:"";}}
+a:0:{}
