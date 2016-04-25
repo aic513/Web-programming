@@ -29,6 +29,8 @@ $smarty->assign('categorys', $categorys);
 
 connect_bd('localhost', 'root', '', 'main_bd');
 
+
+
  
 
 
@@ -39,7 +41,7 @@ if (isset($_POST['confirm_add'])) {                            // кнопка �
         else { 
            ads_ad($_POST);                                      // иначе добавляем новое объявление
         }
-//    restart();                                                 // вызываем restart(); для очистки формы
+    restart();                                                 // вызываем restart(); для очистки формы
     
     
 } elseif (isset($_POST['clear_form']) || isset($_POST['back'])) {      // кнопка очистить форму  вызывает restart();
@@ -48,14 +50,14 @@ if (isset($_POST['confirm_add'])) {                            // кнопка �
     
 } elseif (isset($_POST['clear_base'])) {                     // по кнопке очистить базу очищаем БД
     mysql_query("delete from `advertisement` where id>0");
-//    restart();
+    restart();
     
     
 } elseif (isset($_GET['del_ad'])) {                            // ловим ключ del_ad в массиве $_GET
     $del_id = (int) ($_GET['del_ad']);                         // присваеиваем его переменной $del_id
    if (mysql_fetch_array(mysql_query("select id from `advertisement` where id='$del_id'"))){   // если существует объявление с таким ключом 
-            mysql_query("delete from `adverisement` where id='$del_id'");                     //удаляем его
-//        restart();                                         // перезапускаем скрипт
+            mysql_query("delete from `advertisement` where id='$del_id'");                     //удаляем его
+        restart();                                         // перезапускаем скрипт
     }
     
     

@@ -29,3 +29,14 @@ function add_table1($citys){                                                    
         }
     }
 }
+
+// $city_query = mysql_query('select * from `cities`');              //выбираем из базы данных города и записываем их в массив
+//    while ($row = mysql_fetch_assoc($city_query)) {
+//        $city[$row['id']] = $row['city'];
+//    }
+//    
+//    $category_query = mysql_query('select * from `category`');      //выбираем из базы данных категории и записываем их в массив
+//    while ($row = mysql_fetch_assoc($category_query)) {
+//        if (!$row['subcategory']){ $category[$row['subcategory']] = $row['category']; }
+//        $category[$row['subcategory']][$row['id']] = $row['category'];
+//    }
