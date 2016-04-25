@@ -2,10 +2,10 @@
                                                                        //Пишем функцию для соединения с базой данных
 function connect_bd($server_name,$user_name,$password,$db){
     $connect=  mysql_connect($server_name, $user_name, $password)or die('MySQL сервер недоступен'.  mysql_error());    //устанавливаем соединение с сервером
-    echo "Соединение с сервером установлено успешно<br>" ;
+//    echo "Соединение с сервером установлено успешно<br>" ;
     mysql_select_db($db) or die('соединение с базой данных установить не удалось');               //устанавливаем соединение с нужной нам базой данных
     mysql_query("SET NAMES UTF8");                                                         //сообщаем mysql в какой кодировке мы собираемся работать с БД
-    echo "База данных выбрана успешно";
+//    echo "База данных выбрана успешно";
     
 }
 
@@ -29,14 +29,3 @@ function add_table1($citys){                                                    
         }
     }
 }
-
-// $city_query = mysql_query('select * from `cities`');              //выбираем из базы данных города и записываем их в массив
-//    while ($row = mysql_fetch_assoc($city_query)) {
-//        $city[$row['id']] = $row['city'];
-//    }
-//    
-//    $category_query = mysql_query('select * from `category`');      //выбираем из базы данных категории и записываем их в массив
-//    while ($row = mysql_fetch_assoc($category_query)) {
-//        if (!$row['subcategory']){ $category[$row['subcategory']] = $row['category']; }
-//        $category[$row['subcategory']][$row['id']] = $row['category'];
-//    }

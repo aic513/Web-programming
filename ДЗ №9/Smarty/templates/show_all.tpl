@@ -5,7 +5,7 @@
             <a href='{$smarty.server.SCRIPT_NAME}?click_id={$Id}'> {$i.title}  
             </a>
             | Цена: {$i.price} | Продавец: {$i.seller_name} | 
-            <a href='{$smarty.server.SCRIPT_NAME}?del_ad={$myId}'>Удалить</a><br></li>
+            <a href='{$smarty.server.SCRIPT_NAME}?del_ad={$Id}'>Удалить</a><br></li>
     {foreachelse} объявления отсутствуют
     {/foreach}
 </ul>

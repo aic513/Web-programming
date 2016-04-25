@@ -6,8 +6,8 @@ header("Content-Type: text/html; charset=utf-8");
 
 $project_root = $_SERVER['DOCUMENT_ROOT'];
 $smarty_dir = $project_root.'/Smarty/';
-require_once("dz8-functions.php");                              // подключаем файл с функциями
-require_once ("dz8-data.php");                                  //подключаем файл с городами и категориями
+require_once("dz9-functions.php");                              // подключаем файл с функциями
+require_once ("dz9-data.php");                                  //подключаем файл с городами и категориями
 require_once ('bd_script.php');
 // подключаем smarty
 $smarty_dir = 'Smarty/';
