@@ -7,8 +7,12 @@ header("Content-Type: text/html; charset=utf-8");
 $project_root = $_SERVER['DOCUMENT_ROOT'];
 $smarty_dir = $project_root.'/Smarty/';
 require_once("dz9-functions.php");                              // подключаем файл с функциями
-require_once ("dz9-data.php");                                  //подключаем файл с городами и категориями
-require_once ('bd_script.php');
+require_once ("bd_script.php");                                 //подключаем файл со скриптами для БД
+require_once ("data_connection.php");                           //подключаем файл для соединения с БД
+connect_bd($ServerName,$UserName,$Password,$Database);           //соединяемся с БД
+
+ 
+    
 // подключаем smarty
 $smarty_dir = 'Smarty/';
 require($smarty_dir.'libs/Smarty.class.php');
@@ -24,17 +28,12 @@ $smarty->config_dir = $smarty_dir.'configs/';
 
 //передаем 'имя переменной' и 'значение'
 $smarty->assign('title', 'Наше объявление');
-$smarty->assign('citys', $citys);
-$smarty->assign('categorys', $categorys);
-
-connect_bd('localhost', 'root', '', 'main_bd');
+$smarty->assign('cities', get_cities());
+$smarty->assign('category', get_category());
 
 
 
- 
-
-
-if (isset($_POST['confirm_add'])) {                            // кнопка добавить
+ if (isset($_POST['confirm_add'])) {                            // кнопка добавить
     if (is_numeric($_POST['id_r'])) {                          // если присутствует метка id_r то сохраняем редактируемое объявление
          edit_ads($_POST);
         }

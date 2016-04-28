@@ -30,11 +30,11 @@
     </div>
     <div class="form-group">
         <label for="region" class="col-sm-2 control-label">Город</label>
-        {html_options name=location_id options=$citys selected=$print_ad.location_id}
+        {html_options name=location_id options=$cities selected=$print_ad.location_id}
     </div>
     <div class="form-group">
         <label for="fld_category_id" class="form-label">Категория</label> 
-        {html_options name=category_id options=$categorys selected=$print_ad.category_id}
+        {html_options name=category_id options=$category selected=$print_ad.category_id}
     </div> 
     <div id="f_title">
         <label for="fld_title">Название объявления</label>

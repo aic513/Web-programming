@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.25-dev, created on 2016-04-25 21:20:58
+<?php /* Smarty version 2.6.25-dev, created on 2016-04-28 15:17:19
          compiled from dz9-form.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('function', 'html_options', 'dz9-form.tpl', 33, false),)), $this); ?>
@@ -41,12 +41,12 @@ unset($_smarty_tpl_vars);
     </div>
     <div class="form-group">
         <label for="region" class="col-sm-2 control-label">Город</label>
-        <?php echo smarty_function_html_options(array('name' => 'location_id','options' => $this->_tpl_vars['citys'],'selected' => $this->_tpl_vars['print_ad']['location_id']), $this);?>
+        <?php echo smarty_function_html_options(array('name' => 'location_id','options' => $this->_tpl_vars['cities'],'selected' => $this->_tpl_vars['print_ad']['location_id']), $this);?>
 
     </div>
     <div class="form-group">
         <label for="fld_category_id" class="form-label">Категория</label> 
-        <?php echo smarty_function_html_options(array('name' => 'category_id','options' => $this->_tpl_vars['categorys'],'selected' => $this->_tpl_vars['print_ad']['category_id']), $this);?>
+        <?php echo smarty_function_html_options(array('name' => 'category_id','options' => $this->_tpl_vars['category'],'selected' => $this->_tpl_vars['print_ad']['category_id']), $this);?>
 
     </div> 
     <div id="f_title">
