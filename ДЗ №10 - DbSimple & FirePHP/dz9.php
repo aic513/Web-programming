@@ -31,8 +31,8 @@ $smarty->assign('cities', get_cities($db));
 $smarty->assign('category', get_category($db));
 
 
-
-if (filter_input(INPUT_POST,'confirm_add')) {                            // кнопка добавить
+//isset($_POST['confirm_add'])
+ if (filter_input(INPUT_POST,'confirm_add')) {                            // кнопка добавить
     if (is_numeric($_POST['id_r'])) {                          // если присутствует метка id_r то сохраняем редактируемое объявление
         edit_ads($db,$_POST);
         }
