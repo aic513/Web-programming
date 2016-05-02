@@ -1,4 +1,4 @@
-<?php
+﻿<?php
     function print_form($smarty,$print_ad=0){                           // функция вывода формы
       $add_query = mysql_query("select * from `advertisement`  where id = $print_ad");
       $row = mysql_fetch_assoc($add_query);
@@ -24,7 +24,7 @@
      function edit_ads($add){                                    // функция редактирования объявлений
         if (!isset($add['allow_mails'])){     $add['allow_mails']=0;    }
         $pr1="update `advertisement` set `privat`='{$add['privat']}', `seller_name`='{$add['seller_name']}', `email`='{$add['email']}', "
-        . "`allow_mail`='{$add['allow_mails']}', `phone`='{$add['phone']}', `location_id`='{$add['location_id']}', `category_id`='{$add['category_id']}', "
+        . "`allow_mails`='{$add['allow_mails']}', `phone`='{$add['phone']}', `location_id`='{$add['location_id']}', `category_id`='{$add['category_id']}', "
         . "`title`='{$add['title']}', `description`='{$add['description']}', `price`='{$add['price']}' where id='{$add['id_r']}'";
         mysql_query($pr1);
         }

@@ -49,6 +49,7 @@
     $smarty->cache_dir = $smarty_dir . 'cache';
     $smarty->config_dir = $smarty_dir . 'configs';
     $smarty->display('install.tpl');
+
 ?>
 
 
