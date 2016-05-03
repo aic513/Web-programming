@@ -10,7 +10,9 @@
         mysqli_select_db($commo,$_POST['Database']) or die('не была выбрана база данных');   // снова выбираем ее или выводится предупреждение,что она не выбрана
         
         
+        
                                                    //--Исполнение и загрузка файла main_bd.sql--//
+        
         $commands = '';
         $rows = file("db/main_bd.sql");                                        //читает содержимое файла и помещает его в массив
         foreach ($rows as $row)
@@ -49,7 +51,6 @@
     $smarty->cache_dir = $smarty_dir . 'cache';
     $smarty->config_dir = $smarty_dir . 'configs';
     $smarty->display('install.tpl');
-
 ?>
 
 
