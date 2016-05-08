@@ -55,7 +55,7 @@ if (filter_input(INPUT_POST,'confirm_add')) {                            // кн
     
 } elseif (filter_input(INPUT_GET,'del_ad')) {                            // ловим ключ del_ad в массиве $_GET
     $del_id = filter_input((int)INPUT_GET,'del_ad');                         // присваеиваем его переменной $del_id
-   if ($db->selectRow($db->query("SELECT id FROM `advertisement` WHERE id=?d",$del_id))){   // если существует объявление с таким ключом 
+   if ($db->selectRow("SELECT id FROM `advertisement` WHERE id=?d",$del_id)){   // если существует объявление с таким ключом
             $db->query("DELETE FROM `advertisement` WHERE id='$del_id'");                     //удаляем его
         restart();                                         // перезапускаем скрипт
     }
@@ -64,7 +64,7 @@ if (filter_input(INPUT_POST,'confirm_add')) {                            // кн
     
 } elseif (filter_input(INPUT_GET,'click_id')) {                          // действие по клику на объявление
     $click_id = filter_input((int)INPUT_GET,'click_id');                    // присваиваем переменной $click_id номер кликнутого объявления
-     if ($db-selectRow($db->query("SELECT id FROM `advertisement` WHERE id=?d",$click_id))){  // если объявление с запрашиваемым id существует
+     if ($db->selectRow("SELECT id FROM `advertisement` WHERE id=?d",$click_id)){  // если объявление с запрашиваемым id существует
             print_form($db,$smarty, $click_id);            // выводим объявление в форму
         }
     

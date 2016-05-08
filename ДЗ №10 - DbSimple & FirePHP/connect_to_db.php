@@ -49,4 +49,3 @@ function myLogger($db, $sql, $caller) {
     }
 }
 ?>
-

@@ -1,15 +1,13 @@
 <?php
 //-------------- функция вывода формы OPEN---------------------------//
 function print_form($db,$smarty, $print_ad = 0) {                           
-   if ($print_ad) {
-            $add = get_ad($db, $print_ad);
-        }
-        else{
-            $add = 0;
-        }
-        
+    if ($print_ad) {
+        $print_ad = get_ad($db, $print_ad);
+    }
+    $add = get_all($db);
     $smarty->assign('add', $add);
-    $smarty->assign('city', get_cities($db));
+    $smarty->assign('print_ad', $print_ad);
+    $smarty->assign('city', get_city($db));
     $smarty->assign('category', get_category($db));
     $smarty->display('form.tpl');
 }

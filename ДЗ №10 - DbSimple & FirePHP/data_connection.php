@@ -1,5 +1,5 @@
 <?php
 $ServerName = 'localhost';
 $UserName = 'root';
-$Password = '';
+$Password = '123';
 $Database = 'main_bd';
