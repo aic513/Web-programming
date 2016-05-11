@@ -18,7 +18,7 @@ require($smarty_dir.'libs/Smarty.class.php');
 $smarty = new Smarty();
     
 $smarty->compile_check = TRUE;
-$smarty->debugging = FALSE;
+$smarty->debugging = 0;
     
 $smarty->template_dir = $smarty_dir.'templates/';
 $smarty->compile_dir = $smarty_dir.'templates_c/';
@@ -34,10 +34,10 @@ $smarty->assign('category', $base->get_category($db));
 
 if (filter_input(INPUT_POST,'confirm_add')) {                            // кнопка добавить
     if (is_numeric($_POST['id_r'])) {                          // если присутствует метка id_r то сохраняем редактируемое объявление
-        $base->edit_ads($db,new promo($_POST));
+        $base->edit_ads($db,$_POST);
         }
         else { 
-           $base->ads_ad($db,new promo($_POST));                                      // иначе добавляем новое объявление
+           $base->ads_ad($db, $_POST);                                      // иначе добавляем новое объявление
         }
     $show->restart();                                                 // вызываем restart(); для очистки формы
     
@@ -55,8 +55,8 @@ if (filter_input(INPUT_POST,'confirm_add')) {                            // кн
     
     
 } elseif (isset ($_GET['del_ad'])) {                            // ловим ключ del_ad в массиве $_GET
-   if ($base->get_ad($db, is_numeric($_GET['del_ad']))){        // если существует объявление с таким ключом
-       $base->delete_ad($db,is_numeric($_GET['del_ad']));       //удаляем его
+   if ($base->get_ad($db,(int)$_GET['del_ad'])){        // если существует объявление с таким ключом
+       $base->delete_ad($db,(int)$_GET['del_ad']);       //удаляем его
        $show->restart();                                         // перезапускаем скрипт
     }
     
@@ -64,7 +64,7 @@ if (filter_input(INPUT_POST,'confirm_add')) {                            // кн
     
 } elseif (isset ($_GET['click_id'])) {                          // действие по клику на объявление
      if ($base->get_ad($db, ($_GET['click_id']))){  // если объявление с запрашиваемым id существует
-         $show->print_form($db,$smarty, $_GET['click_id']);            // выводим объявление в форму
+         $show->print_form($db,$smarty, $base, $_GET['click_id']);            // выводим объявление в форму
         }
     
         

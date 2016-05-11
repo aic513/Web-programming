@@ -4,8 +4,8 @@
 <form style="margin-left: 30%;" method="post"> <font size="4">
     <div> 
         <label class="form-label-radio">
-           {* <input type="radio" value="1" checked="" {if $show->getprivat() eq 1}checked{/if} name="privat">Частное лицо*}
-           {* <input type="radio" value="2" {if $show->getprivat() eq 2}checked{/if} name="privat">Компания*}
+           <input type="radio" value="1" checked="" {if $add->getprivat() eq 1}checked{/if} name="privat">Частное лицо
+            <input type="radio" value="2" {if $add->getprivat() eq 2}checked{/if} name="privat">Компания
         </label>
     </div>
     
@@ -13,41 +13,41 @@
         <label for="fld_seller_name">
             <b id="your-name">Ваше имя </b>
         </label>
-        <input type="text" maxlength="40" value="{$show->getsellername()}" name="seller_name" id="fld_seller_name">
+        <input type="text" maxlength="40" value="{$add->getsellername()}" name="seller_name" id="fld_seller_name">
     </div>
     <div>
         <label for="fld_email">Электронная почта</label>
-        <input type="text" value="{$show->getemail()}" name="email" id="fld_email">
+        <input type="text" value="{$add->getemail()}" name="email" id="fld_email">
     </div>
     <div>
-      {*  <label for="allow_mails"> <input type="checkbox" value=checkbox {if isset($show->getallowmails() eq 1)}checked{/if} name="allow_mails" id="allow_mails">
+        <label for="allow_mails"> <input type="checkbox" value=1 {if $add->getallowmails() eq 1}checked{/if} name="allow_mails" id="allow_mails">
             <span>Я не хочу получать вопросы по объявлению по e-mail</span>
-        </label>*}
+        </label>
     </div>
     <div>
         <label id="fld_phone_label" for="fld_phone">Номер телефона</label>
-        <input type="text" value="{$show->getphone()}" name="phone" id="fld_phone">
+        <input type="text" value="{$add->getphone()}" name="phone" id="fld_phone">
     </div>
     <div class="form-group">
         <label for="region" class="col-sm-2 control-label">Город</label>
-        {html_options name=location_id options=$city selected=$show->getlocationid()}
+        {html_options name=location_id options=$city selected=$add->getlocationid()}
     </div>
     <div class="form-group">
         <label for="fld_category_id" class="form-label">Категория</label> 
-        {html_options name=category_id options=$category selected=$show->getcategoryid()}
+        {html_options name=category_id options=$category selected=$add->getcategoryid()}
     </div> 
     <div id="f_title">
         <label for="fld_title">Название объявления</label>
-        <input type="text" maxlength="50" value="{$show->gettitle()}" name="title" id="fld_title">
+        <input type="text" maxlength="50" value="{$add->gettitle()}" name="title" id="fld_title">
     </div>
     <div>
         <label for="fld_description" id="js-description-label">Описание объявления</label>
         <br>
-        <textarea name="description" cols="80" rows="5" maxlength="3000" id="fld_description">{$show->getdescription()}</textarea>
+        <textarea name="description" cols="80" rows="5" maxlength="3000" id="fld_description">{$add->getdescription()}</textarea>
     </div>
     <div id="price_rw"> 
         <label id="price_lbl" for="fld_price">Цена</label> 
-        <input type="text" maxlength="9" value="{$show->getprice()}" name="price" id="fld_price">&nbsp;
+        <input type="text" maxlength="9" value="{$add->getprice()}" name="price" id="fld_price">&nbsp;
         <span id="fld_price_title">руб.</span> 
     </div>
     

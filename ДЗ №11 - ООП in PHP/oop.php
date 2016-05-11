@@ -2,7 +2,7 @@
 error_reporting(E_ERROR|E_WARNING|E_PARSE|E_NOTICE);    
 ini_set('display_errors', 1);
 header("Content-Type: text/html; charset=utf-8");
-
+//===========================================================================================================================================//
                                    //------Создаем КЛАСС ДЛЯ СОХРАНЕНИЯ ДАННЫХ В ОБЪЯВЛЕНИИ----//
                                                         //----OPEN----//
 
@@ -31,9 +31,32 @@ class promo {
                                                 //----OPEN----//
                                                 
                   //--метод конструктора класса promo будет вызываться при каждом создании нового объекта
+    function __construct()                                      //выбирает нужный конструктор
+    {                                                           //в зависимости от входных параметров
+        $a = func_get_args();                                   //
+        $i = func_num_args() + 1;                               
+        if (method_exists($this,$f='__construct'.$i)) {          //если метод в этом классе существует
+            call_user_func_array(array($this,$f),$a);            //вызывается пользовательская функция этого класса
+        } 
+    } 
     
-    function __construct($add) {
-       
+    function __construct1() {                                       //Создает пустой класс
+        $this->id='';
+        $this->privat='';
+        $this->seller_name='';
+        $this->email='';
+        $this->allow_mails='';
+        $this->allow_mails=0;
+        $this->phone='';
+        $this->location_id='';
+        $this->category_id='';
+        $this->title='';
+        $this->description='';
+        $this->price='';
+        $this->id_r='';
+    }
+    
+    function __construct2($add){                                     //Создает класс с параметрами
        if (isset($add['id'])){
            $this->id=$add['id'];
        }
@@ -44,6 +67,9 @@ class promo {
        
        if (isset($add['allow_mails'])){
            $this->allow_mails=$add['allow_mails'];
+       }
+       else{
+           $this->allow_mails=0;
        }
        
        $this->phone=$add['phone'];
@@ -57,6 +83,7 @@ class promo {
         $this->id_r=$add['id_r'];
     }
 
+
 }
                                 //----Определяем метод конструктора класса adverisement----//
                                                     //----CLOSE----//
@@ -65,9 +92,7 @@ class promo {
                                                  //----OPEN----//
 
        public function getallowpost() {
-            if (!isset($this->allow_mails)) {
-            $this->allow_mails=0;      // Если чекбокс не нажат,то в $_POST не отправляется никакого значения. 
-        }                              //В этом случае установка значения в 0
+                            
         return array
         (
             'privat'=>$this->privat,
@@ -83,59 +108,35 @@ class promo {
         );
         }
        
-       public function getid() {
-           return $this->id;                      
-        }
+       public function getid() {return $this->id;}
        
-       public function getprivat() {
-           return $this->privat;           
-        }
+       public function getprivat() {return $this->privat;}
                     
-       public function getsellername() {
-           return $this->seller_name;
-        }
+       public function getsellername() {return $this->seller_name;}
         
-        public function getemail() {
-            return $this->email;            
-        }
+        public function getemail() {return $this->email;}
         
-        public function getallowmails() {
-            return $this->allow_mails;
-        }
+        public function getallowmails() {return $this->allow_mails;}
         
-        public function getphone() {
-            return $this->phone;
-        }
+        public function getphone() {return $this->phone;}
         
-        public function getlocationid() {
-            return $this->location_id;
-        }
+        public function getlocationid() {return $this->location_id;}
         
-        public function getcategoryid() {
-            return $this->category_id;
-        }
+        public function getcategoryid() {return $this->category_id;}
         
-        public function gettitle() {
-            return $this->title;
-        }
+        public function gettitle() {return $this->title;}
         
-        public function getdescription() {
-            return $this->description;
-        }
+        public function getdescription() {return $this->description;}
         
-        public function getprice() {
-            return $this->price;
-        }
+        public function getprice() {return $this->price;}
         
-        public function getidr() {
-            return $this->id_r;
-        }
+        public function getidr() {return $this->id_r;}
                                                //----Определяем методы класса promo----//
                                                                 //----CLOSE----//
 }
                                                     //----Создаем КЛАСС ДЛЯ СОХРАНЕНИЯ ДАННЫХ В ОБЪЯВЛЕНИИ----//
                                                                     //----CLOSE----//
-
+//===========================================================================================================================================//
 
 
                                                 //------Создаем КЛАСС ДЛЯ ВЫВОДА ДАННЫХ НА ЭКРАН----//
@@ -143,13 +144,17 @@ class promo {
 class show_ads{
     
                                                 //-------------- функция вывода формы OPEN---------------------------//
-    public function print_form($db,$smarty,$base,$print_ad = 0) {                           
-    if ($print_ad) {
-        $print_ad =$base->get_ad($db, $print_ad);
+    public function print_form($db,$smarty,$base,$print_ad = '') {                           
+    if ($print_ad) {                                       //если существует $print_ad 
+        $add = new promo($base->get_ad($db, $print_ad));   //создаем новый объект $add класса promo
+        $smarty->assign('add', $add);
     }
-    $add = $base->get_all($db);
-    $smarty->assign('add', $add);
-    $smarty->assign('print_ad', $print_ad);
+    else{
+        $add=new promo();
+        $smarty->assign('add', $add);
+    }
+    
+    $smarty->assign('print_ad',$base->get_all($db));
     $smarty->display('form.tpl');
 }
                                              //-------------- функция вывода формы CLOSE---------------------------//
@@ -172,13 +177,12 @@ class show_ads{
 
 
 
-
+//=============================================================================================================================================//
 
                                                 //----Создаем   КЛАСС ДЛЯ СВЯЗИ С БД----//
                                                                //----OPEN----//
 
 class telesql{
-    
                        //-------------------функция добавления объявлений в Базу Данных OPEN--------------------------------------//
     public function ads_ad($db, $add) {                                    
     if (!isset($add['allow_mails'])) {
@@ -195,11 +199,10 @@ class telesql{
     public function edit_ads($db, $add) {                                    
     if (!isset($add['allow_mails'])) {
         $add['allow_mails'] = 0;
-    }
-     $db->query("UPDATE `advertisement` SET `privat`='{$add['privat']}', `seller_name`='{$add['seller_name']}', `email`='{$add['email']}', "
+    }$db->query("UPDATE `advertisement` SET `privat`='{$add['privat']}', `seller_name`='{$add['seller_name']}', `email`='{$add['email']}', "
             . "`allow_mails`='{$add['allow_mails']}', `phone`='{$add['phone']}', `location_id`='{$add['location_id']}', `category_id`='{$add['category_id']}', "
             . "`title`='{$add['title']}', `description`='{$add['description']}', `price`='{$add['price']}' where id='{$add['id_r']}'");
-}
+    }
                           //----------------------функция редактирования объявлений CLOSE----------------------------//
 
 
@@ -214,10 +217,10 @@ class telesql{
     
                                        //-----------функция возврата всех объявлений из БД OPEN---------------------//
     public function get_all($db){
-         return $db->select("SELECT * FROM `advertisement`");
+         $ads = $db->select("SELECT * FROM `advertisement`");
          $ads_array = array();
         foreach ($ads as $value){
-            $ads_array[] = new ad($value);
+            $ads_array[] = new promo($value);
         }
         return $ads_array;
     }
@@ -249,7 +252,7 @@ class telesql{
             $city[$key] = $value['city'];                                               
         }   
     return $city;
-}
+    }
                                 //----------------функция добавления городов из БД в селекторы CLOSE----------------------------------------------//
 
 
@@ -266,7 +269,7 @@ class telesql{
         }
     }
     return $category;
-}
+    }
                                            //----------------функция добавления категорий из БД в селекторы ClOSE----------------------------------------------//
     
     

@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.25-dev, created on 2016-05-11 13:37:47
+<?php /* Smarty version 2.6.25-dev, created on 2016-05-12 00:27:00
          compiled from form.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('function', 'html_options', 'form.tpl', 33, false),)), $this); ?>
@@ -12,52 +12,57 @@ unset($_smarty_tpl_vars);
 <form style="margin-left: 30%;" method="post"> <font size="4">
     <div> 
         <label class="form-label-radio">
-                              </label>
+           <input type="radio" value="1" checked="" <?php if ($this->_tpl_vars['add']->getprivat() == 1): ?>checked<?php endif; ?> name="privat">Частное лицо
+            <input type="radio" value="2" <?php if ($this->_tpl_vars['add']->getprivat() == 2): ?>checked<?php endif; ?> name="privat">Компания
+        </label>
     </div>
     
     <div> 
         <label for="fld_seller_name">
             <b id="your-name">Ваше имя </b>
         </label>
-        <input type="text" maxlength="40" value="<?php echo $this->_tpl_vars['show']->getsellername(); ?>
+        <input type="text" maxlength="40" value="<?php echo $this->_tpl_vars['add']->getsellername(); ?>
 " name="seller_name" id="fld_seller_name">
     </div>
     <div>
         <label for="fld_email">Электронная почта</label>
-        <input type="text" value="<?php echo $this->_tpl_vars['show']->getemail(); ?>
+        <input type="text" value="<?php echo $this->_tpl_vars['add']->getemail(); ?>
 " name="email" id="fld_email">
     </div>
     <div>
-          </div>
+        <label for="allow_mails"> <input type="checkbox" value=1 <?php if ($this->_tpl_vars['add']->getallowmails() == 1): ?>checked<?php endif; ?> name="allow_mails" id="allow_mails">
+            <span>Я не хочу получать вопросы по объявлению по e-mail</span>
+        </label>
+    </div>
     <div>
         <label id="fld_phone_label" for="fld_phone">Номер телефона</label>
-        <input type="text" value="<?php echo $this->_tpl_vars['show']->getphone(); ?>
+        <input type="text" value="<?php echo $this->_tpl_vars['add']->getphone(); ?>
 " name="phone" id="fld_phone">
     </div>
     <div class="form-group">
         <label for="region" class="col-sm-2 control-label">Город</label>
-        <?php echo smarty_function_html_options(array('name' => 'location_id','options' => $this->_tpl_vars['city'],'selected' => $this->_tpl_vars['show']->getlocationid()), $this);?>
+        <?php echo smarty_function_html_options(array('name' => 'location_id','options' => $this->_tpl_vars['city'],'selected' => $this->_tpl_vars['add']->getlocationid()), $this);?>
 
     </div>
     <div class="form-group">
         <label for="fld_category_id" class="form-label">Категория</label> 
-        <?php echo smarty_function_html_options(array('name' => 'category_id','options' => $this->_tpl_vars['category'],'selected' => $this->_tpl_vars['show']->getcategoryid()), $this);?>
+        <?php echo smarty_function_html_options(array('name' => 'category_id','options' => $this->_tpl_vars['category'],'selected' => $this->_tpl_vars['add']->getcategoryid()), $this);?>
 
     </div> 
     <div id="f_title">
         <label for="fld_title">Название объявления</label>
-        <input type="text" maxlength="50" value="<?php echo $this->_tpl_vars['show']->gettitle(); ?>
+        <input type="text" maxlength="50" value="<?php echo $this->_tpl_vars['add']->gettitle(); ?>
 " name="title" id="fld_title">
     </div>
     <div>
         <label for="fld_description" id="js-description-label">Описание объявления</label>
         <br>
-        <textarea name="description" cols="80" rows="5" maxlength="3000" id="fld_description"><?php echo $this->_tpl_vars['show']->getdescription(); ?>
+        <textarea name="description" cols="80" rows="5" maxlength="3000" id="fld_description"><?php echo $this->_tpl_vars['add']->getdescription(); ?>
 </textarea>
     </div>
     <div id="price_rw"> 
         <label id="price_lbl" for="fld_price">Цена</label> 
-        <input type="text" maxlength="9" value="<?php echo $this->_tpl_vars['show']->getprice(); ?>
+        <input type="text" maxlength="9" value="<?php echo $this->_tpl_vars['add']->getprice(); ?>
 " name="price" id="fld_price">&nbsp;
         <span id="fld_price_title">руб.</span> 
     </div>

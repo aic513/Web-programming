@@ -1,7 +1,7 @@
-<?php /* Smarty version 2.6.25-dev, created on 2016-04-25 01:53:36
-         compiled from file:Z:%5Chome%5Ctest1.ru%5Cwww%5Cfolder1%5CSmarty%5Clibs%5Cdebug.tpl */ ?>
+<?php /* Smarty version 2.6.25-dev, created on 2016-05-12 00:18:18
+         compiled from file:Z:%5Chome%5Cweb.loc%5Cwww%5CDZ_11%5CSmarty%5Clibs%5Cdebug.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('function', 'assign_debug_info', 'file:Z:\\home\\test1.ru\\www\\folder1\\Smarty\\libs\\debug.tpl', 3, false),array('function', 'cycle', 'file:Z:\\home\\test1.ru\\www\\folder1\\Smarty\\libs\\debug.tpl', 119, false),array('modifier', 'escape', 'file:Z:\\home\\test1.ru\\www\\folder1\\Smarty\\libs\\debug.tpl', 102, false),array('modifier', 'string_format', 'file:Z:\\home\\test1.ru\\www\\folder1\\Smarty\\libs\\debug.tpl', 105, false),array('modifier', 'debug_print_var', 'file:Z:\\home\\test1.ru\\www\\folder1\\Smarty\\libs\\debug.tpl', 121, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('function', 'assign_debug_info', 'file:Z:\\home\\web.loc\\www\\DZ_11\\Smarty\\libs\\debug.tpl', 3, false),array('function', 'cycle', 'file:Z:\\home\\web.loc\\www\\DZ_11\\Smarty\\libs\\debug.tpl', 119, false),array('modifier', 'escape', 'file:Z:\\home\\web.loc\\www\\DZ_11\\Smarty\\libs\\debug.tpl', 102, false),array('modifier', 'string_format', 'file:Z:\\home\\web.loc\\www\\DZ_11\\Smarty\\libs\\debug.tpl', 105, false),array('modifier', 'debug_print_var', 'file:Z:\\home\\web.loc\\www\\DZ_11\\Smarty\\libs\\debug.tpl', 121, false),)), $this); ?>
 <?php echo smarty_function_assign_debug_info(array(), $this);?>
 
 <?php ob_start(); ?>
