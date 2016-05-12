@@ -31,33 +31,10 @@ class promo {
                                                 //----OPEN----//
                                                 
                   //--метод конструктора класса promo будет вызываться при каждом создании нового объекта
-    function __construct()                                      //выбирает нужный конструктор
-    {                                                           //в зависимости от входных параметров
-        $a = func_get_args();                                   //
-        $i = func_num_args() + 1;                               
-        if (method_exists($this,$f='__construct'.$i)) {          //если метод в этом классе существует
-            call_user_func_array(array($this,$f),$a);            //вызывается пользовательская функция этого класса
-        } 
-    } 
+
     
-    function __construct1() {                                       //Создает пустой класс
-        $this->id='';
-        $this->privat='';
-        $this->seller_name='';
-        $this->email='';
-        $this->allow_mails='';
-        $this->allow_mails=0;
-        $this->phone='';
-        $this->location_id='';
-        $this->category_id='';
-        $this->title='';
-        $this->description='';
-        $this->price='';
-        $this->id_r='';
-    }
-    
-    function __construct2($add){                                     //Создает класс с параметрами
-       if (isset($add['id'])){
+    function __construct($add){                                     
+        if (isset($add['id'])){
            $this->id=$add['id'];
        }
        
@@ -150,7 +127,7 @@ class show_ads{
         $smarty->assign('add', $add);
     }
     else{
-        $add=new promo();
+        $add=new promo(0);
         $smarty->assign('add', $add);
     }
     
