@@ -119,6 +119,12 @@ class Ads {
     }
     
     
+        public function restart() {  
+        $db = db::instance();
+        header("Location: $_SERVER[SCRIPT_NAME]");
+        exit;
+    }
+    
                                                //----Определяем методы класса Ads----//
                                                                 //----CLOSE----//
 }
