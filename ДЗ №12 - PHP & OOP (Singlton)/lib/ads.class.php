@@ -16,7 +16,7 @@ class Ads {
     public $title;
     public $description;
     public $price;
-    public $type;
+    
     
                                            //----Определяем свойства класса Ads----//
                                                             //----CLOSE----//

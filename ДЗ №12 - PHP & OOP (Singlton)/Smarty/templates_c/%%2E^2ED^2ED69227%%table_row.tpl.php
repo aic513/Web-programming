@@ -1,6 +1,6 @@
-<?php /* Smarty version 2.6.25-dev, created on 2016-05-24 21:26:13
+<?php /* Smarty version 2.6.25-dev, created on 2016-05-26 12:19:01
          compiled from table_row.tpl */ ?>
-<tr <?php if ($this->_tpl_vars['ad']->gettype() == 1): ?><?php if ($this->_tpl_vars['ad']->getcolor() == 1): ?>class="success"<?php endif; ?><?php endif; ?> >
+<tr >
     <td><?php echo $this->_tpl_vars['ad']->getid(); ?>
 </td>
     <td><a href='<?php echo $_SERVER['SCRIPT_NAME']; ?>

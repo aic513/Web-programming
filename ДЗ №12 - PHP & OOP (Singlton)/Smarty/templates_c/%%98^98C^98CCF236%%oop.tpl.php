@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.25-dev, created on 2016-05-24 21:38:20
+<?php /* Smarty version 2.6.25-dev, created on 2016-05-26 12:12:19
          compiled from oop.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('function', 'html_options', 'oop.tpl', 52, false),)), $this); ?>
@@ -96,21 +96,7 @@ smarty_core_load_plugins(array('plugins' => array(array('function', 'html_option
                         <input type="radio" name="type" id="optionsRadios1" value="0" checked> Частное лицо
                     </label>
                 </div>
-                <div class="radio">
-                    <label>
-                        <input type="radio" name="type" id="optionsRadios2" value="1" <?php if ($this->_tpl_vars['add']->gettype() == 1): ?>checked<?php endif; ?>>Компания
-                    </label>
                 </div>
-            </div>
-        </div>
-        <div class="form-group">
-            <div class="col-sm-offset-2 col-sm-10">
-                <div class="checkbox">
-                    <label>
-                        <input type="checkbox" value="1" name="color" <?php if (( $this->_tpl_vars['add']->gettype() == 1 )): ?> <?php if (( $this->_tpl_vars['add']->getcolor() == 1 )): ?>checked<?php endif; ?><?php endif; ?>>Выделить объявление цветом (только для компании)
-                    </label>
-                </div>
-            </div>
         </div>
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
