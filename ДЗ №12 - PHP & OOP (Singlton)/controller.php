@@ -17,7 +17,7 @@ require($smarty_dir.'libs/Smarty.class.php');
 $smarty = new Smarty();
     
 $smarty->compile_check = TRUE;
-$smarty->debugging = 1;
+$smarty->debugging = 0;
     
 $smarty->template_dir = $smarty_dir.'templates/';
 $smarty->compile_dir = $smarty_dir.'templates_c/';

@@ -78,6 +78,12 @@ class AdsStore{
         self::$ads = array();
         return self::$instance;
     }
+    
+     public function restart() {  
+        $db = db::instance();
+        header("Location: $_SERVER[SCRIPT_NAME]");
+        exit;
+    }
 
 
      public function prepareForOut() {                                           // формирует таблицу с объявлениями для вывода
