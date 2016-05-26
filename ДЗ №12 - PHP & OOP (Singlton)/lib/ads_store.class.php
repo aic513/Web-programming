@@ -1,0 +1,118 @@
+<?php
+//error_reporting(E_ERROR|E_WARNING|E_PARSE);    
+ini_set('display_errors', 1);
+header("Content-Type: text/html; charset=utf-8");
+//===========================================================================================================================================//
+require_once ("connect_to_db.php");                   //подключаемся к самой БД
+
+//=============================================================================================================================================//
+
+                                                //----Создаем хранилище объявлений----//
+                                                               //----OPEN----//
+
+class AdsStore{
+    private static $instance = NULL;
+    private $ads = array();
+    
+    public static function instance() {
+        if(self::$instance == NULL){
+            self::$instance = new AdsStore();
+        }
+        return self::$instance;
+    }
+    
+    public function getAdFromDb($id){                                           // возвращает объявление из базы по id
+       return $this->ads[$id];
+    }
+    
+    public function addAds(Ads $add) {                                           // добавляет объекты в массив хранилища
+        if(!($this instanceof AdsStore)){
+            die('Нельзя использовать этот метод в конструкторе классов');
+        }
+        $this->ads[$add->getid()]=$add;
+    }
+    
+    public function save($post) {                                               // сохраняет/создаёт объявление в бд
+        $post['type'] ? $add = new AdsCompany($post) : $add = new Ads($post);
+        $id = $add->save();                                                            // сохраняем в бд
+        self::addAds($add);
+        return self::$instance;
+    }
+    
+    public function del($id) {                                                  // удаляет объявление из хранилища и бд
+        $this->ads[$id]->del();
+//        unset($this->$ads[$id]);
+//        return self::$instance;
+    }
+    
+    public function getAllAdsFromDb() {                                         // помещает все объявления из базы в хранилище
+        $db = db::instance();
+        $all = $db->select('select * from advertisement');
+        foreach ($all as $value){
+            $value['type'] ? $add = new adscompany($value) : $add = new Ads($value);
+            self::addAds($add); //помещаем объекты в хранилище
+        }
+//        return self::$instance;
+    }
+    
+    
+     function getlocationid(){                                                       // возвращает список городов для селектора
+        $db = db::instance();
+        $city = $db->selectCol('SELECT id AS ARRAY_KEY,city FROM cities');
+        return $city;
+    } 
+    
+    function getCategories(){                                            // возвращает список категорий для селектора
+        $db = db::instance();
+        $categories_query = $db->select('SELECT * FROM `category`');      //выбираем из базы данных категории и записываем их в массив
+        foreach ($categories_query as $value) {
+            $categories[$value['subcategory']][$value['id']] = $value['category'];
+        }
+        $categories[0] = $categories[0][1];
+        return $categories;
+    }
+    
+    function clearDB(){                                              // очищает базу данных
+        $db = db::instance();
+        $db->query("delete from `ads` where 1");
+        self::$ads = array();
+        return self::$instance;
+    }
+
+
+     public function prepareForOut() {                                           // формирует таблицу с объявлениями для вывода
+        global $smarty;
+        $row='';
+        foreach ($this->ads as $value) {
+            $smarty->assign('ad',$value);
+            $row.=$smarty->fetch('table_row.tpl');
+        }
+        $smarty->assign('ads_rows',$row);
+        return self::$instance;
+    }
+    public function display($id = 0) {                                              // вывод на экран
+        global $smarty;
+//        $id ? $add = self::getAdFromDb($id) : $add = 0;
+//        $add['type'] ? $display = new adsCompany($add) : $display = new ads($add);
+       
+        
+        if ($id) {
+            $adsStore = AdsStore::instance();
+            $add = $adsStore->getAdFromDb($id);
+            $smarty->assign('add', $add);
+        } else {
+            $add = new Ads();
+            $smarty->assign('add', $add);
+        }
+        
+    
+        $smarty->display('oop.tpl');
+    }
+}
+
+    
+    
+    
+
+                                                    //----Создаем   КЛАСС ДЛЯ СВЯЗИ С БД----//
+                                                               //----CLOSE----//
