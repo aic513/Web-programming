@@ -43,6 +43,14 @@ $smarty->assign('category', $adsStore->getCategories());
 
 
 
+if (isset($_POST['seller_name'])) {
+
+    if (isset($_POST['private'])) {
+        $ad = new AdsCompany($_POST);
+    } else {
+        $ad = new AdsPrivatePerson($_POST);
+    }
+}
 
 
 if (isset($_POST['submit'])){                                // если нажата кнопка добавить/сохранить

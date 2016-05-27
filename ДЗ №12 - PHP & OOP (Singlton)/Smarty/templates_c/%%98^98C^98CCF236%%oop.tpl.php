@@ -1,7 +1,7 @@
-<?php /* Smarty version 2.6.25-dev, created on 2016-05-26 12:12:19
+<?php /* Smarty version 2.6.25-dev, created on 2016-05-27 16:24:57
          compiled from oop.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('function', 'html_options', 'oop.tpl', 52, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('function', 'html_options', 'oop.tpl', 55, false),)), $this); ?>
 <!DOCTYPE html>
 <html lang="en">
     
@@ -19,9 +19,12 @@ smarty_core_load_plugins(array('plugins' => array(array('function', 'html_option
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 </head>
 
-<body style="width:400px;margin:0 auto;">
+<body style="margin:0 auto;">
     <br>
-    <form class="form-horizontal" method="POST">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-12 col-sm-10 col-md-8">
+    <form class="form-horizontal" method="POST" >
         <input type="hidden" name="id" value="<?php echo $this->_tpl_vars['add']->getid(); ?>
 ">
         <div class="form-group">
@@ -30,7 +33,7 @@ smarty_core_load_plugins(array('plugins' => array(array('function', 'html_option
                 <input type="text" name="seller_name" class="form-control" id="inputEmail3" placeholder="Введите имя" value="<?php echo $this->_tpl_vars['add']->getsellername(); ?>
 ">
             </div>
-        </div>
+            </div>
         <div class="form-group">
             <label for="inputEmail3" class="col-sm-2 control-label">Почта</label>
             <div class="col-sm-10">
@@ -89,19 +92,28 @@ smarty_core_load_plugins(array('plugins' => array(array('function', 'html_option
 ">
             </div>
         </div>
+       <div class="form-group">
+                          
+                                <div class="radio-inline">
+                                    <label><input type="radio" 
+                                        <?php if ($this->_tpl_vars['ad']['private'] == 0): ?> 
+                                            checked="" 
+                                        <?php endif; ?>
+                                                  value="0" name="private">Частное лицо</label> 
+                                </div>            
+                                <div class="radio-inline">
+                                    <label><input type="radio" 
+                                        <?php if ($this->_tpl_vars['ad']['private'] == 1): ?> 
+                                            checked="" 
+                                        <?php endif; ?>
+                                                  value="1" name="private">Компания</label> 
+                                </div>            
+                                      
+                        </div>            
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
-                <div class="radio">
-                    <label>
-                        <input type="radio" name="type" id="optionsRadios1" value="0" checked> Частное лицо
-                    </label>
-                </div>
-                </div>
-        </div>
-        <div class="form-group">
-            <div class="col-sm-offset-2 col-sm-10">
-                <button type="submit" name="submit" class="btn btn-default"><?php if ($this->_tpl_vars['add']->getid()): ?>Сохранить<?php else: ?>Добавить<?php endif; ?> объявление</button>
-                <button type="submit" name="clear_form" class="btn btn-default">Очистить форму</button>
+                <button type="submit" name="submit" class="btn btn-success"><?php if ($this->_tpl_vars['add']->getid()): ?>Сохранить<?php else: ?>Добавить<?php endif; ?> объявление</button>
+                <button type="submit" name="clear_form" class="btn btn-primary">Очистить форму</button>
                 <button type="submit" name="clear_base" class="btn btn-default">Очистить базу</button>
             </div>
         </div>
@@ -111,6 +123,9 @@ $this->_smarty_include(array('smarty_include_tpl_file' => 'table.tpl', 'smarty_i
 $this->_tpl_vars = $_smarty_tpl_vars;
 unset($_smarty_tpl_vars);
  ?>
+                </div>
+                </div>
+    </div>
 </body>
 
 </html>

@@ -15,16 +15,19 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 </head>
 
-<body style="width:400px;margin:0 auto;">
+<body style="margin:0 auto;">
     <br>
-    <form class="form-horizontal" method="POST">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-12 col-sm-10 col-md-8">
+    <form class="form-horizontal" method="POST" >
         <input type="hidden" name="id" value="{$add->getid()}">
         <div class="form-group">
             <label for="inputEmail3" class="col-sm-2 control-label">Имя</label>
             <div class="col-sm-10">
                 <input type="text" name="seller_name" class="form-control" id="inputEmail3" placeholder="Введите имя" value="{$add->getsellername()}">
             </div>
-        </div>
+            </div>
         <div class="form-group">
             <label for="inputEmail3" class="col-sm-2 control-label">Почта</label>
             <div class="col-sm-10">
@@ -76,24 +79,36 @@
                 <input type="text" name="price" class="form-control" id="inputEmail3" placeholder="Введите цену в рублях" value="{$add->getprice()}">
             </div>
         </div>
+       <div class="form-group">
+                          
+                                <div class="radio-inline">
+                                    <label><input type="radio" 
+                                        {if $ad.private eq 0} 
+                                            checked="" 
+                                        {/if}
+                                                  value="0" name="private">Частное лицо</label> 
+                                </div>            
+                                <div class="radio-inline">
+                                    <label><input type="radio" 
+                                        {if $ad.private eq 1} 
+                                            checked="" 
+                                        {/if}
+                                                  value="1" name="private">Компания</label> 
+                                </div>            
+                                      
+                        </div>            
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
-                <div class="radio">
-                    <label>
-                        <input type="radio" name="type" id="optionsRadios1" value="0" checked> Частное лицо
-                    </label>
-                </div>
-                </div>
-        </div>
-        <div class="form-group">
-            <div class="col-sm-offset-2 col-sm-10">
-                <button type="submit" name="submit" class="btn btn-default">{if $add->getid()}Сохранить{else}Добавить{/if} объявление</button>
-                <button type="submit" name="clear_form" class="btn btn-default">Очистить форму</button>
+                <button type="submit" name="submit" class="btn btn-success">{if $add->getid()}Сохранить{else}Добавить{/if} объявление</button>
+                <button type="submit" name="clear_form" class="btn btn-primary">Очистить форму</button>
                 <button type="submit" name="clear_base" class="btn btn-default">Очистить базу</button>
             </div>
         </div>
     </form>
                 {include file = 'table.tpl'}
+                </div>
+                </div>
+    </div>
 </body>
 
 </html>
