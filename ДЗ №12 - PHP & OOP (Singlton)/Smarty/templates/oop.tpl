@@ -15,7 +15,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 </head>
 
-<body style="margin:0 auto;">
+<body style="margin:0 auto;cursor:pointer;">
     <br>
     <div class="container-fluid">
         <div class="row">
@@ -49,16 +49,22 @@
                 <input type="text" name="phone" class="form-control" id="inputEmail3" placeholder="Введите номер телефона" value="{$add->getphone()}">
             </div>
         </div>
+            
         <div class="form-group">
             <label for="inputEmail3" class="col-sm-2 control-label">Город</label>
             <div class="col-sm-10">
-                 {html_options name=location_id options=$city selected=$add->getlocationid()}
+                <select style="cursor:pointer;" name="location_id" class="form-control" >
+                 {html_options  options=$city selected=$add->getlocationid()}
+                </select>
             </div>
         </div>
+            
         <div class="form-group">
             <label for="inputEmail3" class="col-sm-2 control-label">Категория</label>
             <div class="col-sm-10">
-                {html_options name=category_id options=$category selected=$add->getcategoryid()}
+                <select style="cursor:pointer;" name="category_id" class="form-control">
+                {html_options options=$category selected=$add->getcategoryid()}
+                </select>
             </div>
         </div>
         <div class="form-group">
@@ -80,21 +86,22 @@
             </div>
         </div>
        <div class="form-group">
-                          
+           <div class="col-sm-offset-2 col-sm-10">
                                 <div class="radio-inline">
                                     <label><input type="radio" 
-                                        {if $ad.private eq 0} 
+                                        {if $ad->privat eq 0} 
                                             checked="" 
                                         {/if}
-                                                  value="0" name="private">Частное лицо</label> 
+                                                  value="0" name="privat">Частное лицо</label> 
                                 </div>            
                                 <div class="radio-inline">
                                     <label><input type="radio" 
-                                        {if $ad.private eq 1} 
+                                        {if $ad->privat eq 1} 
                                             checked="" 
                                         {/if}
-                                                  value="1" name="private">Компания</label> 
-                                </div>            
+                                                  value="1" name="privat">Компания</label> 
+                                </div> 
+       </div>
                                       
                         </div>            
         <div class="form-group">

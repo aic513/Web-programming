@@ -52,7 +52,7 @@ $firePHP = FirePHP::getInstance(TRUE);
 // устанавливаем активность
 $firePHP->setEnabled(true);
 
-$db->setLogger('myLogger');
+//$db->setLogger('myLogger');
 
 function myLogger($db, $sql, $caller) {
     global $firePHP;

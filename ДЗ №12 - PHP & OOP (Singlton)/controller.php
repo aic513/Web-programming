@@ -1,5 +1,5 @@
 <?php
-error_reporting(E_ERROR|E_PARSE);    
+error_reporting(E_PARSE);    
 ini_set('display_errors', 1);
 header("Content-Type: text/html; charset=utf-8");
 
@@ -24,6 +24,8 @@ $smarty->compile_dir = $smarty_dir.'templates_c/';
 $smarty->cache_dir = $smarty_dir.'cache/';
 $smarty->config_dir = $smarty_dir.'configs/';
 
+
+
 //Подключаем классы
 spl_autoload_register(function ($class) {
     $class_path = 'lib/' . $class . '.class.php';
@@ -31,6 +33,11 @@ spl_autoload_register(function ($class) {
         include $class_path;
     }
 });
+
+//require_once ("lib/ads.class.php");
+//require_once ("lib/AdsCompany.class.php");
+//require_once ("lib/AdsPrivatePerson.class.php");
+//require_once ("lib/adsstore.class.php");
 
 $adsStore = AdsStore::instance();
 $adsStore->getAllAdsFromDb();
@@ -45,7 +52,7 @@ $smarty->assign('category', $adsStore->getCategories());
 
 if (isset($_POST['seller_name'])) {
 
-    if (isset($_POST['private'])) {
+    if (isset($_POST['privat'])) {
         $ad = new AdsCompany($_POST);
     } else {
         $ad = new AdsPrivatePerson($_POST);

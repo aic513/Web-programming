@@ -33,8 +33,8 @@ class AdsStore{
     }
     
     public function save($post) {                                               // сохраняет/создаёт объявление в бд
-        $post['type'] ? $add = new AdsCompany($post) : $add = new Ads($post);
-        $id = $add->save();                                                            // сохраняем в бд
+        $post['privat'] ? $add = new AdsCompany($post) : $add = new AdsPrivatePerson($post);
+        $add->save();                                                            // сохраняем в бд
         self::addAds($add);
         return self::$instance;
     }
@@ -49,12 +49,12 @@ class AdsStore{
         $db = db::instance();
         $all = $db->select('select * from advertisement');
         foreach ($all as $value){
-            if( $value['private'] == 1 ){ 
+            if( $value['privat'] == 1 ){ 
                 $ad = new AdsCompany($value);
             } else {
                 $ad = new AdsPrivatePerson($value);
             }
-            self::addAds($add); //помещаем объекты в хранилище
+            self::addAds($ad); //помещаем объекты в хранилище
         }
 //        return self::$instance;
     }
@@ -68,13 +68,22 @@ class AdsStore{
     
     function getCategories(){                                            // возвращает список категорий для селектора
         $db = db::instance();
-        $categories_query = $db->select('SELECT * FROM `category`');      //выбираем из базы данных категории и записываем их в массив
-        foreach ($categories_query as $value) {
-            $categories[$value['subcategory']][$value['id']] = $value['category'];
+        $category_query = $db->select('SELECT id AS ARRAY_KEY,category,parent_id AS PARENT_KEY FROM `category`');   //выбираем из базы данных категории и записываем их в массив
+        foreach ($category_query as $key => $value) {                                                          //Приводим к правильному виду
+            if (!$key) {                                                                                            
+             $category[$key] = $value['category'];
         }
-        $categories[0] = $categories[0][1];
-        return $categories;
+        foreach ($value['childNodes'] as $number => $title) {
+            $category[$value['category']][$number] = $title['category'];
+        }
     }
+    return $category;
+    }
+    
+  
+
+
+    
     
     function clearDB(){                                              // очищает базу данных
         $db = db::instance();
@@ -111,7 +120,7 @@ class AdsStore{
             $add = $adsStore->getAdFromDb($id);
             $smarty->assign('add', $add);
         } else {
-            $add = new Ads();
+            $add = new Ads(0);
             $smarty->assign('add', $add);
         }
         

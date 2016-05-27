@@ -6,7 +6,7 @@ class Ads {
                                                     
                                   //-----Тип свойств - "public (защищенный)"----//
     public $id;
-    public $privat;
+//    public $privat;
     public $seller_name;
     public $email;
     public $allow_mails;
@@ -32,7 +32,7 @@ class Ads {
            $this->id=$add['id'];
        }
        
-       $this->privat=$add['privat'];
+//       $this->privat=$add['privat'];
        $this->seller_name=$add['seller_name'];
        $this->email=$add['email'];
        
