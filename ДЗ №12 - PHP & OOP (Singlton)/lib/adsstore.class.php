@@ -49,7 +49,11 @@ class AdsStore{
         $db = db::instance();
         $all = $db->select('select * from advertisement');
         foreach ($all as $value){
-            $value['type'] ? $add = new adscompany($value) : $add = new Ads($value);
+            if( $value['private'] == 1 ){ 
+                $ad = new AdsCompany($value);
+            } else {
+                $ad = new AdsPrivatePerson($value);
+            }
             self::addAds($add); //помещаем объекты в хранилище
         }
 //        return self::$instance;
