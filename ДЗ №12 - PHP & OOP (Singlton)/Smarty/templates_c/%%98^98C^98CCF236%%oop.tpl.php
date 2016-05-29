@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.25-dev, created on 2016-05-29 13:31:06
+<?php /* Smarty version 2.6.25-dev, created on 2016-05-29 20:41:07
          compiled from oop.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('function', 'html_options', 'oop.tpl', 57, false),)), $this); ?>
@@ -82,6 +82,8 @@ smarty_core_load_plugins(array('plugins' => array(array('function', 'html_option
                         <div class="col-sm-10">
                             <input type="text" name="title" class="form-control" id="inputEmail3" placeholder="Введите название" maxlength="50" value="<?php echo $this->_tpl_vars['add']->gettitle(); ?>
 ">
+                             <?php if ($this->_tpl_vars['error_title']): ?><font color="red"><?php echo $this->_tpl_vars['error']; ?>
+</font><?php endif; ?>
                         </div>
                     </div>
                     <div class="form-group">
@@ -89,6 +91,8 @@ smarty_core_load_plugins(array('plugins' => array(array('function', 'html_option
                         <div class="col-sm-10">
                             <textarea name="description" class="form-control" cols="80" rows="5" maxlength="3000" placeholder="Введите информацию о товаре/услуге"><?php echo $this->_tpl_vars['add']->getdescription(); ?>
 </textarea>
+                            <?php if ($this->_tpl_vars['error_description']): ?><font color="red"><?php echo $this->_tpl_vars['error']; ?>
+</font><?php endif; ?>
                         </div>
                     </div>
                     <div class="form-group">

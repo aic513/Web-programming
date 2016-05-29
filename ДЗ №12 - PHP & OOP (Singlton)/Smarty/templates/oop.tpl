@@ -71,12 +71,14 @@
                         <label for="inputEmail3" class="col-sm-2 control-label">Название</label>
                         <div class="col-sm-10">
                             <input type="text" name="title" class="form-control" id="inputEmail3" placeholder="Введите название" maxlength="50" value="{$add->gettitle()}">
+                             {if $error_title}<font color="red">{$error}</font>{/if}
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="inputPassword3" class="col-sm-2 control-label">Описание</label>
                         <div class="col-sm-10">
                             <textarea name="description" class="form-control" cols="80" rows="5" maxlength="3000" placeholder="Введите информацию о товаре/услуге">{$add->getdescription()}</textarea>
+                            {if $error_description}<font color="red">{$error}</font>{/if}
                         </div>
                     </div>
                     <div class="form-group">

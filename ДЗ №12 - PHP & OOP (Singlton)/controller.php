@@ -36,6 +36,7 @@ spl_autoload_register(function ($class) {
 
 $adsStore = AdsStore::instance();
 $adsStore->getAllAdsFromDb();
+$errors = new errors(array('title', 'description', 'price'));
 //передаем 'имя переменной' и 'значение'
 $smarty->assign('title', 'Наше объявление');
 $smarty->assign('city', $adsStore->getlocationid());
@@ -54,8 +55,14 @@ if (isset($_POST['seller_name'])) {
 
 
 if (isset($_POST['submit'])){                                // если нажата кнопка добавить/сохранить
+     $add = new Ads();      
+        if ($errors->ad_error_check($add, $smarty)) {
+            $smarty->assign('add', $add);
+        } else{
         $adsStore->save($_POST);                              
     }
+}
+    
     
     elseif (isset($_POST['clear_form'])){
     }
@@ -74,15 +81,6 @@ if (isset($_POST['submit'])){                                // если наж�
         $adsStore->prepareForOut()->display((int)$_GET['click_id']);
         exit();
     }
-    
-    $CheckResult = AdChecker::check($add);
-    if ( $CheckResult ){    // Проверка на заполнение полей
-        AdsStore::instance()->getAllAdsFromDb()->prepareForOut($add, $CheckResult)->display(); // Если не пройдена - на корректировку
-    } else {
-        $add->save();              // Иначе - сохранение
-        AdsStore::instance()->getAllAdsFromDb()->prepareForOut()->display(); // Если не пройдена - на корректировку
-    }
-
-    
+      
     $adsStore->prepareForOut()->display();
 
