@@ -41,8 +41,7 @@ class AdsStore{
     
     public function del($id) {                                                  // удаляет объявление из хранилища и бд
         $this->ads[$id]->del();
-//        unset($this->$ads[$id]);
-//        return self::$instance;
+
     }
     
     public function getAllAdsFromDb() {                                         // помещает все объявления из базы в хранилище
@@ -56,7 +55,7 @@ class AdsStore{
             }
             self::addAds($ad); //помещаем объекты в хранилище
         }
-//        return self::$instance;
+
     }
     
     
@@ -66,22 +65,20 @@ class AdsStore{
         return $city;
     } 
     
-    function getCategories(){                                            // возвращает список категорий для селектора
+    
+    function getCategories() {                                            // возвращает список категорий для селектора
         $db = db::instance();
         $category_query = $db->select('SELECT id AS ARRAY_KEY,category,parent_id AS PARENT_KEY FROM `category`');   //выбираем из базы данных категории и записываем их в массив
         foreach ($category_query as $key => $value) {                                                          //Приводим к правильному виду
-            if (!$key) {                                                                                            
-             $category[$key] = $value['category'];
+            if (!$key) {
+                $category[$key] = $value['category'];
+            }
+            foreach ($value['childNodes'] as $number => $title) {
+                $category[$value['category']][$number] = $title['category'];
+            }
         }
-        foreach ($value['childNodes'] as $number => $title) {
-            $category[$value['category']][$number] = $title['category'];
-        }
+        return $category;
     }
-    return $category;
-    }
-    
-  
-
 
     
     
@@ -111,10 +108,6 @@ class AdsStore{
     }
     public function display($id = 0) {                                              // вывод на экран
         global $smarty;
-//        $id ? $add = self::getAdFromDb($id) : $add = 0;
-//        $add['type'] ? $display = new adsCompany($add) : $display = new ads($add);
-       
-        
         if ($id) {
             $adsStore = AdsStore::instance();
             $add = $adsStore->getAdFromDb($id);

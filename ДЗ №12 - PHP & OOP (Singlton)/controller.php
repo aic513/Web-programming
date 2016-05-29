@@ -1,5 +1,5 @@
 <?php
-error_reporting(E_PARSE);    
+error_reporting(E_ALL|E_PARSE);    
 ini_set('display_errors', 1);
 header("Content-Type: text/html; charset=utf-8");
 
@@ -30,14 +30,9 @@ $smarty->config_dir = $smarty_dir.'configs/';
 spl_autoload_register(function ($class) {
     $class_path = 'lib/' . $class . '.class.php';
     if (file_exists($class_path)) {
-        include $class_path;
+        require_once $class_path;
     }
 });
-
-//require_once ("lib/ads.class.php");
-//require_once ("lib/AdsCompany.class.php");
-//require_once ("lib/AdsPrivatePerson.class.php");
-//require_once ("lib/adsstore.class.php");
 
 $adsStore = AdsStore::instance();
 $adsStore->getAllAdsFromDb();
@@ -45,9 +40,6 @@ $adsStore->getAllAdsFromDb();
 $smarty->assign('title', 'Наше объявление');
 $smarty->assign('city', $adsStore->getlocationid());
 $smarty->assign('category', $adsStore->getCategories());
-
-
-
 
 
 if (isset($_POST['seller_name'])) {
@@ -60,6 +52,7 @@ if (isset($_POST['seller_name'])) {
 }
 
 
+
 if (isset($_POST['submit'])){                                // если нажата кнопка добавить/сохранить
         $adsStore->save($_POST);                              
     }
@@ -69,6 +62,7 @@ if (isset($_POST['submit'])){                                // если наж�
 
     elseif (isset ($_POST['clear_base'])) {                     // по кнопке очистить базу, удаляем все строки из таблицы ads
         $adsStore->clearDB();
+        $adsStore->restart();
     }
 
     elseif (isset($_GET['del_ad'])){                            // если нажата ссылка Удалить
@@ -80,5 +74,15 @@ if (isset($_POST['submit'])){                                // если наж�
         $adsStore->prepareForOut()->display((int)$_GET['click_id']);
         exit();
     }
+    
+    $CheckResult = AdChecker::check($add);
+    if ( $CheckResult ){    // Проверка на заполнение полей
+        AdsStore::instance()->getAllAdsFromDb()->prepareForOut($add, $CheckResult)->display(); // Если не пройдена - на корректировку
+    } else {
+        $add->save();              // Иначе - сохранение
+        AdsStore::instance()->getAllAdsFromDb()->prepareForOut()->display(); // Если не пройдена - на корректировку
+    }
+
+    
     $adsStore->prepareForOut()->display();
 

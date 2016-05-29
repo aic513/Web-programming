@@ -1,10 +1,10 @@
-<?php /* Smarty version 2.6.25-dev, created on 2016-05-27 21:34:12
+<?php /* Smarty version 2.6.25-dev, created on 2016-05-29 13:31:06
          compiled from oop.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('function', 'html_options', 'oop.tpl', 57, false),)), $this); ?>
 <!DOCTYPE html>
 <html lang="en">
-    
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -19,119 +19,112 @@ smarty_core_load_plugins(array('plugins' => array(array('function', 'html_option
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 </head>
 
-<body style="margin:0 auto;cursor:pointer;">
+<body style="cursor:pointer;">
     <br>
     <div class="container-fluid">
         <div class="row">
             <div class="col-xs-12 col-sm-10 col-md-8">
-    <form class="form-horizontal" method="POST" >
-        <input type="hidden" name="id" value="<?php echo $this->_tpl_vars['add']->getid(); ?>
+                <form class="form-horizontal" method="POST">
+                    <input type="hidden" name="id" value="<?php echo $this->_tpl_vars['add']->getid(); ?>
 ">
-        <div class="form-group">
-            <label for="inputEmail3" class="col-sm-2 control-label">Имя</label>
-            <div class="col-sm-10">
-                <input type="text" name="seller_name" class="form-control" id="inputEmail3" placeholder="Введите имя" value="<?php echo $this->_tpl_vars['add']->getsellername(); ?>
+                    <div class="form-group">
+                        <label for="inputEmail3" class="col-sm-2 control-label">Имя</label>
+                        <div class="col-sm-10">
+                            <input type="text" name="seller_name" class="form-control" id="inputEmail3" placeholder="Введите имя" value="<?php echo $this->_tpl_vars['add']->getsellername(); ?>
 ">
-            </div>
-            </div>
-        <div class="form-group">
-            <label for="inputEmail3" class="col-sm-2 control-label">Почта</label>
-            <div class="col-sm-10">
-                <input type="text" name="email" class="form-control" id="inputEmail3" placeholder="Введите адрес электронной почты" value="<?php echo $this->_tpl_vars['add']->getemail(); ?>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputEmail3" class="col-sm-2 control-label">Почта</label>
+                        <div class="col-sm-10">
+                            <input type="text" name="email" class="form-control" id="inputEmail3" placeholder="Введите адрес электронной почты" value="<?php echo $this->_tpl_vars['add']->getemail(); ?>
 ">
-            </div>
-        </div>
-        <div class="form-group">
-            <div class="col-sm-offset-2 col-sm-10">
-                <div class="checkbox">
-                    <label>
-                        <input type="checkbox" value="1" name="allow_mails" <?php if ($this->_tpl_vars['add']->getallowmails() == 1): ?>checked<?php endif; ?>> <span>Я не хочу получать вопросы по объявлению по e-mail</span>
-                    </label>
-                </div>
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="inputEmail3" class="col-sm-2 control-label">Телефон</label>
-            <div class="col-sm-10">
-                <input type="text" name="phone" class="form-control" id="inputEmail3" placeholder="Введите номер телефона" value="<?php echo $this->_tpl_vars['add']->getphone(); ?>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" value="1" name="allow_mails" <?php if ($this->_tpl_vars['add']->getallowmails() == 1): ?>checked<?php endif; ?>> <span>Я не хочу получать вопросы по объявлению по e-mail</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputEmail3" class="col-sm-2 control-label">Телефон</label>
+                        <div class="col-sm-10">
+                            <input type="text" name="phone" class="form-control" id="inputEmail3" placeholder="Введите номер телефона" value="<?php echo $this->_tpl_vars['add']->getphone(); ?>
 ">
-            </div>
-        </div>
-            
-        <div class="form-group">
-            <label for="inputEmail3" class="col-sm-2 control-label">Город</label>
-            <div class="col-sm-10">
-                <select style="cursor:pointer;" name="location_id" class="form-control" >
-                 <?php echo smarty_function_html_options(array('options' => $this->_tpl_vars['city'],'selected' => $this->_tpl_vars['add']->getlocationid()), $this);?>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputEmail3" class="col-sm-2 control-label">Город</label>
+                        <div class="col-sm-10">
+                            <select style="cursor:pointer; text-align-last: center;font-style:italic;" name="location_id" class="form-control">
+                                <option>Выберите город</option>
+                                <?php echo smarty_function_html_options(array('options' => $this->_tpl_vars['city'],'selected' => $this->_tpl_vars['add']->getlocationid()), $this);?>
 
-                </select>
-            </div>
-        </div>
-            
-        <div class="form-group">
-            <label for="inputEmail3" class="col-sm-2 control-label">Категория</label>
-            <div class="col-sm-10">
-                <select style="cursor:pointer;" name="category_id" class="form-control">
-                <?php echo smarty_function_html_options(array('options' => $this->_tpl_vars['category'],'selected' => $this->_tpl_vars['add']->getcategoryid()), $this);?>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputEmail3" class="col-sm-2 control-label">Категория</label>
+                        <div class="col-sm-10">
+                            <select style="cursor:pointer;text-align-last: center;font-style:italic;" name="category_id" class="form-control">
+                                <option>Выберите катеригорию</option>
+                                <?php echo smarty_function_html_options(array('options' => $this->_tpl_vars['category'],'selected' => $this->_tpl_vars['add']->getcategoryid()), $this);?>
 
-                </select>
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="inputEmail3" class="col-sm-2 control-label">Название</label>
-            <div class="col-sm-10">
-                <input type="text" name="title" class="form-control" id="inputEmail3" placeholder="Введите название" maxlength="50" value="<?php echo $this->_tpl_vars['add']->gettitle(); ?>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputEmail3" class="col-sm-2 control-label">Название</label>
+                        <div class="col-sm-10">
+                            <input type="text" name="title" class="form-control" id="inputEmail3" placeholder="Введите название" maxlength="50" value="<?php echo $this->_tpl_vars['add']->gettitle(); ?>
 ">
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="inputPassword3" class="col-sm-2 control-label">Описание</label>
-            <div class="col-sm-10">
-                <textarea name="description" class="form-control" cols="80" rows="5" maxlength="3000" placeholder="Введите информацию о товаре/услуге"><?php echo $this->_tpl_vars['add']->getdescription(); ?>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPassword3" class="col-sm-2 control-label">Описание</label>
+                        <div class="col-sm-10">
+                            <textarea name="description" class="form-control" cols="80" rows="5" maxlength="3000" placeholder="Введите информацию о товаре/услуге"><?php echo $this->_tpl_vars['add']->getdescription(); ?>
 </textarea>
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="inputEmail3" class="col-sm-2 control-label">Цена</label>
-            <div class="col-sm-10">
-                <input type="text" name="price" class="form-control" id="inputEmail3" placeholder="Введите цену в рублях" value="<?php echo $this->_tpl_vars['add']->getprice(); ?>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputEmail3" class="col-sm-2 control-label">Цена</label>
+                        <div class="col-sm-10">
+                            <input type="text" name="price" class="form-control" id="inputEmail3" placeholder="Введите цену в рублях" value="<?php echo $this->_tpl_vars['add']->getprice(); ?>
 ">
-            </div>
-        </div>
-       <div class="form-group">
-           <div class="col-sm-offset-2 col-sm-10">
-                                <div class="radio-inline">
-                                    <label><input type="radio" 
-                                        <?php if ($this->_tpl_vars['ad']->privat == 0): ?> 
-                                            checked="" 
-                                        <?php endif; ?>
-                                                  value="0" name="privat">Частное лицо</label> 
-                                </div>            
-                                <div class="radio-inline">
-                                    <label><input type="radio" 
-                                        <?php if ($this->_tpl_vars['ad']->privat == 1): ?> 
-                                            checked="" 
-                                        <?php endif; ?>
-                                                  value="1" name="privat">Компания</label> 
-                                </div> 
-       </div>
-                                      
-                        </div>            
-        <div class="form-group">
-            <div class="col-sm-offset-2 col-sm-10">
-                <button type="submit" name="submit" class="btn btn-success"><?php if ($this->_tpl_vars['add']->getid()): ?>Сохранить<?php else: ?>Добавить<?php endif; ?> объявление</button>
-                <button type="submit" name="clear_form" class="btn btn-primary">Очистить форму</button>
-                <button type="submit" name="clear_base" class="btn btn-default">Очистить базу</button>
-            </div>
-        </div>
-    </form>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <div class="radio-inline">
+                                <label>
+                                    <input type="radio" <?php if ($this->_tpl_vars['ad']->privat == 0): ?> checked="" <?php endif; ?> value="0" name="privat">Частное лицо</label>
+                            </div>
+                            <div class="radio-inline">
+                                <label>
+                                    <input type="radio" <?php if ($this->_tpl_vars['ad']->privat == 1): ?> checked="" <?php endif; ?> value="1" name="privat">Компания</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" name="submit" class="btn btn-success"><?php if ($this->_tpl_vars['add']->getid()): ?>Сохранить<?php else: ?>Добавить<?php endif; ?> объявление</button>
+                            <button type="submit" name="clear_form" class="btn btn-primary">Очистить форму</button>
+                            <button type="submit" name="clear_base" class="btn btn-default">Очистить базу</button>
+                        </div>
+                    </div>
+                </form>
                 <?php $_smarty_tpl_vars = $this->_tpl_vars;
 $this->_smarty_include(array('smarty_include_tpl_file' => 'table.tpl', 'smarty_include_vars' => array()));
 $this->_tpl_vars = $_smarty_tpl_vars;
 unset($_smarty_tpl_vars);
  ?>
-                </div>
-                </div>
+            </div>
+        </div>
     </div>
 </body>
 
