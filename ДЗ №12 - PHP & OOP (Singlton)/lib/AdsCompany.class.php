@@ -5,5 +5,4 @@ class AdsCompany extends Ads{
         $this->privat = 1;
     }
 }
-?>
 

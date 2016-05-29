@@ -1,7 +1,7 @@
-<?php /* Smarty version 2.6.25-dev, created on 2016-05-29 20:41:07
+<?php /* Smarty version 2.6.25-dev, created on 2016-05-30 00:12:19
          compiled from oop.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('function', 'html_options', 'oop.tpl', 57, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('function', 'html_options', 'oop.tpl', 58, false),)), $this); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,7 +18,6 @@ smarty_core_load_plugins(array('plugins' => array(array('function', 'html_option
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 </head>
-
 <body style="cursor:pointer;">
     <br>
     <div class="container-fluid">
@@ -32,6 +31,8 @@ smarty_core_load_plugins(array('plugins' => array(array('function', 'html_option
                         <div class="col-sm-10">
                             <input type="text" name="seller_name" class="form-control" id="inputEmail3" placeholder="Введите имя" value="<?php echo $this->_tpl_vars['add']->getsellername(); ?>
 ">
+                            <?php if ($this->_tpl_vars['error_title']): ?><font color="red"><?php echo $this->_tpl_vars['error']; ?>
+</font><?php endif; ?>
                         </div>
                     </div>
                     <div class="form-group">
@@ -55,6 +56,8 @@ smarty_core_load_plugins(array('plugins' => array(array('function', 'html_option
                         <div class="col-sm-10">
                             <input type="text" name="phone" class="form-control" id="inputEmail3" placeholder="Введите номер телефона" value="<?php echo $this->_tpl_vars['add']->getphone(); ?>
 ">
+                            <?php if ($this->_tpl_vars['error_title']): ?><font color="red"><?php echo $this->_tpl_vars['error']; ?>
+</font><?php endif; ?>
                         </div>
                     </div>
                     <div class="form-group">
@@ -100,6 +103,8 @@ smarty_core_load_plugins(array('plugins' => array(array('function', 'html_option
                         <div class="col-sm-10">
                             <input type="text" name="price" class="form-control" id="inputEmail3" placeholder="Введите цену в рублях" value="<?php echo $this->_tpl_vars['add']->getprice(); ?>
 ">
+                             <?php if ($this->_tpl_vars['error_description']): ?><font color="red"><?php echo $this->_tpl_vars['error']; ?>
+</font><?php endif; ?>
                         </div>
                     </div>
                     <div class="form-group">

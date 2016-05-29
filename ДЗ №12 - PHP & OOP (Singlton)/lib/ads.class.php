@@ -59,23 +59,6 @@ class Ads {
                                      //----Определяем методы класса Ads----//
                                                  //----OPEN----//
 
-    public function getallowpost() {
-                            
-        return array
-        (
-            'privat'=>$this->privat,
-            'seller_name'=>$this->seller_name,
-            'email'=>$this->email,
-            'allow_mails'=>$this->allow_mails,
-            'phone'=>$this->phone,
-            'location_id'=>$this->location_id, 
-            'category_id'=>$this->category_id,
-            'title'=>$this->title,
-            'description'=>$this->description,
-            'price'=>$this->price
-        );
-        }
-       
        public function getid() {return $this->id;}
        
        public function getprivat() {return $this->privat;}
@@ -97,6 +80,8 @@ class Ads {
         public function getdescription() {return $this->description;}
         
         public function getprice() {return $this->price;}
+        
+        public function getvars() {return get_object_vars($this);}
         
         
         

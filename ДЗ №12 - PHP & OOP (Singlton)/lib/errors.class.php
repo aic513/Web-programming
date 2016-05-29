@@ -7,7 +7,7 @@
         }
         
         public function ad_error_check(Ads $add, $smarty) {
-            $vars = $add->getallowmails();
+            $vars = $add->getvars();
             $errorsNumber = 0;
             foreach ($this->errors as $value) {
                 if(empty($vars[$value])){
@@ -16,7 +16,7 @@
                 }
             }
             if ($errorsNumber) {
-                $smarty->assign('error', 'Пожалуйста заполните поле');
+                $smarty->assign('error', 'Пожалуйста, заполните поле');
                 return true;
             } else {
                 return false;

@@ -14,7 +14,6 @@
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 </head>
-
 <body style="cursor:pointer;">
     <br>
     <div class="container-fluid">
@@ -26,6 +25,7 @@
                         <label for="inputEmail3" class="col-sm-2 control-label">Имя</label>
                         <div class="col-sm-10">
                             <input type="text" name="seller_name" class="form-control" id="inputEmail3" placeholder="Введите имя" value="{$add->getsellername()}">
+                            {if $error_title}<font color="red">{$error}</font>{/if}
                         </div>
                     </div>
                     <div class="form-group">
@@ -47,6 +47,7 @@
                         <label for="inputEmail3" class="col-sm-2 control-label">Телефон</label>
                         <div class="col-sm-10">
                             <input type="text" name="phone" class="form-control" id="inputEmail3" placeholder="Введите номер телефона" value="{$add->getphone()}">
+                            {if $error_title}<font color="red">{$error}</font>{/if}
                         </div>
                     </div>
                     <div class="form-group">
@@ -85,6 +86,7 @@
                         <label for="inputEmail3" class="col-sm-2 control-label">Цена</label>
                         <div class="col-sm-10">
                             <input type="text" name="price" class="form-control" id="inputEmail3" placeholder="Введите цену в рублях" value="{$add->getprice()}">
+                             {if $error_description}<font color="red">{$error}</font>{/if}
                         </div>
                     </div>
                     <div class="form-group">

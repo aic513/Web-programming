@@ -84,8 +84,8 @@ class AdsStore{
     
     function clearDB(){                                              // очищает базу данных
         $db = db::instance();
-        $db->query("delete from `ads` where 1");
-        self::$ads = array();
+        $db->query("delete from `advertisement` where 1");
+        $this->ads = array();
         return self::$instance;
     }
     
@@ -106,18 +106,8 @@ class AdsStore{
         $smarty->assign('ads_rows',$row);
         return self::$instance;
     }
-    public function display($id = 0) {                                              // вывод на экран
+    public function display() {                                              // вывод на экран
         global $smarty;
-        if ($id) {
-            $adsStore = AdsStore::instance();
-            $add = $adsStore->getAdFromDb($id);
-            $smarty->assign('add', $add);
-        } else {
-            $add = new Ads(0);
-            $smarty->assign('add', $add);
-        }
-        
-    
         $smarty->display('oop.tpl');
     }
 }
