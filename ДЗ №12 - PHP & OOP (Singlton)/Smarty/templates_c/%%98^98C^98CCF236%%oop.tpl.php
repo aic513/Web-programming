@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.25-dev, created on 2016-05-30 00:12:19
+<?php /* Smarty version 2.6.25-dev, created on 2016-05-30 21:33:43
          compiled from oop.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('function', 'html_options', 'oop.tpl', 58, false),)), $this); ?>
@@ -31,7 +31,7 @@ smarty_core_load_plugins(array('plugins' => array(array('function', 'html_option
                         <div class="col-sm-10">
                             <input type="text" name="seller_name" class="form-control" id="inputEmail3" placeholder="Введите имя" value="<?php echo $this->_tpl_vars['add']->getsellername(); ?>
 ">
-                            <?php if ($this->_tpl_vars['error_title']): ?><font color="red"><?php echo $this->_tpl_vars['error']; ?>
+                            <?php if ($this->_tpl_vars['error_seller_name']): ?><font color="red"><?php echo $this->_tpl_vars['error']; ?>
 </font><?php endif; ?>
                         </div>
                     </div>
@@ -56,7 +56,7 @@ smarty_core_load_plugins(array('plugins' => array(array('function', 'html_option
                         <div class="col-sm-10">
                             <input type="text" name="phone" class="form-control" id="inputEmail3" placeholder="Введите номер телефона" value="<?php echo $this->_tpl_vars['add']->getphone(); ?>
 ">
-                            <?php if ($this->_tpl_vars['error_title']): ?><font color="red"><?php echo $this->_tpl_vars['error']; ?>
+                            <?php if ($this->_tpl_vars['error_phone']): ?><font color="red"><?php echo $this->_tpl_vars['error']; ?>
 </font><?php endif; ?>
                         </div>
                     </div>
@@ -103,7 +103,7 @@ smarty_core_load_plugins(array('plugins' => array(array('function', 'html_option
                         <div class="col-sm-10">
                             <input type="text" name="price" class="form-control" id="inputEmail3" placeholder="Введите цену в рублях" value="<?php echo $this->_tpl_vars['add']->getprice(); ?>
 ">
-                             <?php if ($this->_tpl_vars['error_description']): ?><font color="red"><?php echo $this->_tpl_vars['error']; ?>
+                             <?php if ($this->_tpl_vars['error_price']): ?><font color="red"><?php echo $this->_tpl_vars['error']; ?>
 </font><?php endif; ?>
                         </div>
                     </div>

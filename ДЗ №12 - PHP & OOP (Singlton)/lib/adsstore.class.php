@@ -84,13 +84,12 @@ class AdsStore{
     
     function clearDB(){                                              // очищает базу данных
         $db = db::instance();
-        $db->query("delete from `advertisement` where 1");
+        $db->query("delete from `advertisement`");
         $this->ads = array();
         return self::$instance;
     }
     
      public function restart() {  
-        $db = db::instance();
         header("Location: $_SERVER[SCRIPT_NAME]");
         exit;
     }

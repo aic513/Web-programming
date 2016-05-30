@@ -36,7 +36,7 @@ spl_autoload_register(function ($class) {
 
 $adsStore = AdsStore::instance();
 $adsStore->getAllAdsFromDb();
-$errors = new errors(array('title', 'description','price'));
+$errors = new errors(array('title', 'description','price','seller_name','phone'));
 //передаем 'имя переменной' и 'значение'
 $smarty->assign('title', 'Наше объявление');
 $smarty->assign('city', $adsStore->getlocationid());
