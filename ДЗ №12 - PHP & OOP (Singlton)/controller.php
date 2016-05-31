@@ -74,14 +74,12 @@ if (isset($_POST['submit'])){                                // если наж�
 }
    
     elseif (isset($_POST['clear_form'])){
-        $add = new Ads(0);
+        $add = new Ads(0);                   //либо можно реализовать с помощью перезагрузки страницы
         $smarty->assign('add', $add);
     }
 
     elseif (isset ($_POST['clear_base'])) {                     // по кнопке очистить базу, удаляем все строки из таблицы ads
-        $adsStore->clearDB();
-        $adsStore->restart();
-        $adsStore->prepareForOut()->display();
+         $adsStore->clearDB()->restart();
     }
 
     elseif (isset($_GET['del_ad'])){                            // если нажата ссылка Удалить
