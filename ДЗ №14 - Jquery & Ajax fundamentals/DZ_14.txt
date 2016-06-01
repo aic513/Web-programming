@@ -17,3 +17,18 @@ CSS: tbody tr:nth-child(1),tbody tr:nth-child(2);
 4)В последней строке таблицы подсветить ячейку второй колонки
 CSS: tbody tr:last-child>td:odd;
   Jquery: $("tbody tr:last-child>td:odd").addClass("wrappedElement");
+
+
+Denis Morozov06/01/2016 23:22
+Подкорректированные ответы,более уточненные селекторы 
+
+
+1)  Все ссылки с текстом Css которые находятся в списке 
+CSS: a[href*=css];
+Jquery:$("a[href*=css]").addClass("wrappedElement");
+
+
+
+4)В последней строке таблицы подсветить ячейку второй колонки
+CSS:#languages tr:last td:eq(1);
+Jquery: $("#languages tr:last td:eq(1)").addClass("wrappedElement");
