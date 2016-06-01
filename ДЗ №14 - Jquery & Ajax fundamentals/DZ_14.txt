@@ -1,0 +1,19 @@
+ќтветы на задание:
+
+1)  ¬се ссылки с текстом Css которые наход€тс€ в списке 
+CSS: .myList li>a;
+  Jquery:$(".myList li>a").addClass("wrappedElement");
+
+2) 3 и 4 картинки
+CSS: img:nth-child(3),img:nth-child(4);
+  Jquery: $("img:nth-child(3),img:nth-child(4)").addClass("wrappedElement");
+
+
+3) 1 и 2 строки в таблице (заголовок не учитывать)
+CSS: tbody tr:nth-child(1),tbody tr:nth-child(2);
+  Jquery: $("tbody tr:nth-child(1),tbody tr:nth-child(2)").addClass("wrappedElement");
+
+
+4)¬ последней строке таблицы подсветить €чейку второй колонки
+CSS: tbody tr:last-child>td:odd;
+  Jquery: $("tbody tr:last-child>td:odd").addClass("wrappedElement");
