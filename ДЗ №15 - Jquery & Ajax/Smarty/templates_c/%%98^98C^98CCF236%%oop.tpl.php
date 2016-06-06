@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.25-dev, created on 2016-06-05 19:10:40
+<?php /* Smarty version 2.6.25-dev, created on 2016-06-06 12:57:46
          compiled from oop.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('function', 'html_options', 'oop.tpl', 58, false),)), $this); ?>
@@ -23,7 +23,7 @@ smarty_core_load_plugins(array('plugins' => array(array('function', 'html_option
     <div class="container-fluid">
         <div class="row">
             <div class="col-xs-12 col-sm-10 col-md-8">
-                <form class="form-horizontal" method="POST">
+                <form class="form-horizontal" id="form" method="POST">
                     <input type="hidden" name="id" value="<?php echo $this->_tpl_vars['add']->getid(); ?>
 ">
                     <div class="form-group">

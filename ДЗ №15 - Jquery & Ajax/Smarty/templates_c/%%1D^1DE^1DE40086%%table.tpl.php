@@ -1,7 +1,8 @@
-<?php /* Smarty version 2.6.25-dev, created on 2016-05-29 23:48:23
+<?php /* Smarty version 2.6.25-dev, created on 2016-06-06 00:14:24
          compiled from table.tpl */ ?>
 <br>
-<table style="font-style:italic; font-family:Consolas;" class="table table-bordered table-responsive">
+<div class="table-responsive">
+<table style="font-style:italic; font-family:Consolas;" class="table table-condensed table-hover table-bordered">
    <thead>
                 <tr>
                   <th>#id</th>
@@ -19,3 +20,4 @@
               
               </tbody>
 </table>
+</div>

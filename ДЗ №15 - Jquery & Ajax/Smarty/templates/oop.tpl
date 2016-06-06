@@ -19,7 +19,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-xs-12 col-sm-10 col-md-8">
-                <form class="form-horizontal" method="POST">
+                <form class="form-horizontal" id="form" method="POST">
                     <input type="hidden" name="id" value="{$add->getid()}">
                     <div class="form-group">
                         <label for="inputEmail3" class="col-sm-2 control-label">Имя</label>

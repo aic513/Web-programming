@@ -1,5 +1,6 @@
 <br>
-<table style="font-style:italic; font-family:Consolas;" class="table table-bordered table-responsive">
+<div class="table-responsive">
+<table style="font-style:italic; font-family:Consolas;" class="table table-condensed table-hover table-bordered">
    <thead>
                 <tr>
                   <th>#id</th>
@@ -16,3 +17,4 @@
               
               </tbody>
 </table>
+</div>
