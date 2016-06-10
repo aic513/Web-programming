@@ -40,9 +40,15 @@ class AdsStore{
     }
     
     public function del($id) {                                                  // удаляет объявление из хранилища и бд
-        $this->ads[$id]->del();
+        if($this->ads[$id]->del()){
+            unset($this->ads[$id]);
+                return true;
+            } else {
+                return false;
+            }
+        }
 
-    }
+    
     
     public function getAllAdsFromDb() {                                         // помещает все объявления из базы в хранилище
         $db = db::instance();
