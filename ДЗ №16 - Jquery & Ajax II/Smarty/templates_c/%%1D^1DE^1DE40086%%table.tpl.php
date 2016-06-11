@@ -1,7 +1,6 @@
-<?php /* Smarty version 2.6.25-dev, created on 2016-06-06 00:14:24
+<?php /* Smarty version 2.6.25-dev, created on 2016-06-11 22:19:15
          compiled from table.tpl */ ?>
-<br>
-<div class="table-responsive">
+<div class="table-responsive col-sm-offset-2">
 <table style="font-style:italic; font-family:Consolas;" class="table table-condensed table-hover table-bordered">
    <thead>
                 <tr>

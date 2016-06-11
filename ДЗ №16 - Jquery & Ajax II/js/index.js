@@ -3,15 +3,25 @@ $('document').ready(function () {                                  // устан
         var tr = $(this).closest('tr');                                    //находим ближайший родительский tr
         var id = tr.children('td:first').html();                   //находим первый td в этом tr
         $('input,select,textarea,checkbox').val('');
-        
-        
-        
+               
         var number = {"del_ad": id};
         $.getJSON('ajax_controller.php?action=delete',
                 number,
                 function (response) {
-                    console.log(response);
                     tr.fadeOut('slow', function () {                         //медленно скрываем строку
+                        if(response.status=='success'){
+                            $('#container').removeClass('alert-info').addClass('alert-success');
+                            $('#container_info').html(response.message);
+                            $('#container').fadeIn('slow');
+                        }
+                        else if (response.status=='error'){
+                            $('#container').removeClass('alert-success').addClass('alert-danger');
+                            $('#container_info').html(response.message);
+                            $('#container').fadeIn('slow');
+                        }
+                        setTimeout(function () {               //самоисчезание через 3 секунды
+                            $('#container').fadeOut('slow');
+                        }, 3000);
                         $(this).remove(); //удаляем строку из DOM
                         clear_form(); //очищаем поля в форме
 

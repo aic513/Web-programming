@@ -1,5 +1,4 @@
-<br>
-<div class="table-responsive">
+<div class="table-responsive col-sm-offset-2">
 <table style="font-style:italic; font-family:Consolas;" class="table table-condensed table-hover table-bordered">
    <thead>
                 <tr>

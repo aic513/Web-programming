@@ -1,5 +1,6 @@
-<?php /* Smarty version 2.6.25-dev, created on 2016-06-10 12:52:04
+<?php /* Smarty version 2.6.25-dev, created on 2016-06-11 22:16:33
          compiled from table_row.tpl */ ?>
+
 <tr style="background-color:#d8fffe">
     <td><?php echo $this->_tpl_vars['ad']->getid(); ?>
 </td>
@@ -17,6 +18,4 @@
 </td>
     <td><a class="delete btn btn-danger">Удалить</a></td>
 </tr>
-
-  <div id="container"></div>
- 
+

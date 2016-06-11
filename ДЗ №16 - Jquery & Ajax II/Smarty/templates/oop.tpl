@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,14 +15,14 @@
     <br>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-xs-12 col-sm-10 col-md-8">
+            <div class="col-xs-12 col-sm-10 col-md-10">
                 <form class="form-horizontal" id="form" method="POST">
                     <input type="hidden" name="id" value="{$add->getid()}">
                     <div class="form-group">
                         <label for="inputEmail3" class="col-sm-2 control-label">Имя</label>
                         <div class="col-sm-10">
-                            <input type="text" name="seller_name" class="form-control" id="inputEmail3" placeholder="Введите имя" value="{$add->getsellername()}">
-                            {if $error_seller_name}<font color="red">{$error}</font>{/if}
+                            <input type="text" name="seller_name" class="form-control" id="inputEmail3" placeholder="Введите имя" value="{$add->getsellername()}"> {if $error_seller_name}
+                            <font color="red">{$error}</font>{/if}
                         </div>
                     </div>
                     <div class="form-group">
@@ -44,8 +43,8 @@
                     <div class="form-group">
                         <label for="inputEmail3" class="col-sm-2 control-label">Телефон</label>
                         <div class="col-sm-10">
-                            <input type="text" name="phone" class="form-control" id="inputEmail3" placeholder="Введите номер телефона" value="{$add->getphone()}">
-                            {if $error_phone}<font color="red">{$error}</font>{/if}
+                            <input type="text" name="phone" class="form-control" id="inputEmail3" placeholder="Введите номер телефона" value="{$add->getphone()}"> {if $error_phone}
+                            <font color="red">{$error}</font>{/if}
                         </div>
                     </div>
                     <div class="form-group">
@@ -69,22 +68,23 @@
                     <div class="form-group">
                         <label for="inputEmail3" class="col-sm-2 control-label">Название</label>
                         <div class="col-sm-10">
-                            <input type="text" name="title" class="form-control" id="inputEmail3" placeholder="Введите название" maxlength="50" value="{$add->gettitle()}">
-                             {if $error_title}<font color="red">{$error}</font>{/if}
+                            <input type="text" name="title" class="form-control" id="inputEmail3" placeholder="Введите название" maxlength="50" value="{$add->gettitle()}"> {if $error_title}
+                            <font color="red">{$error}</font>{/if}
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="inputPassword3" class="col-sm-2 control-label">Описание</label>
                         <div class="col-sm-10">
-                            <textarea name="description" class="form-control" cols="80" rows="5" maxlength="3000" placeholder="Введите информацию о товаре/услуге">{$add->getdescription()}</textarea>
-                            {if $error_description}<font color="red">{$error}</font>{/if}
+                            <textarea name="description" class="form-control" cols="80" rows="3" maxlength="3000" placeholder="Введите информацию о товаре/услуге">{$add->getdescription()}</textarea>
+                            {if $error_description}
+                            <font color="red">{$error}</font>{/if}
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="inputEmail3" class="col-sm-2 control-label">Цена</label>
                         <div class="col-sm-10">
-                            <input type="text" name="price" class="form-control" id="inputEmail3" placeholder="Введите цену в рублях" value="{$add->getprice()}">
-                             {if $error_price}<font color="red">{$error}</font>{/if}
+                            <input type="text" name="price" class="form-control" id="inputEmail3" placeholder="Введите цену в рублях" value="{$add->getprice()}"> {if $error_price}
+                            <font color="red">{$error}</font>{/if}
                         </div>
                     </div>
                     <div class="form-group">
@@ -107,6 +107,10 @@
                         </div>
                     </div>
                 </form>
+                <div id="container" class="col-sm-offset-2 alert alert-success alert-dismissible" role="alert" style="display:none;">
+                    <a style="vertical-align: top;" class="close" onclick="$('#container').fadeOut('slow');"><span style="vertical-align:middle;" aria-hidden="true">&times;</span></a>
+                    <div id="container_info"></div>
+                </div>
                 {include file = 'table.tpl'}
             </div>
         </div>
@@ -116,5 +120,4 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     <script src="js/index.js"></script>
 </body>
-
 </html>

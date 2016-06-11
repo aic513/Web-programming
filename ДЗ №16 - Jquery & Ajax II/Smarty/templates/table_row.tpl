@@ -1,3 +1,4 @@
+
 <tr style="background-color:#d8fffe">
     <td>{$ad->getid()}</td>
     <td>{$ad->getsellername()}</td>
@@ -8,5 +9,3 @@
     <td><a class="delete btn btn-danger">Удалить</a></td>
 </tr>
 
-  <div id="container"></div>
- 

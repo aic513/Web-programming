@@ -41,11 +41,6 @@ if (isset($_POST['submit'])){                                // если наж�
          $adsStore->clearDB()->restart();
     }
 
-//    elseif (isset($_GET['del_ad'])){                            // если нажата ссылка Удалить
-//        $adsStore->del((int)$_GET['del_ad']);
-//        $adsStore->restart();
-//    }
-
     elseif (isset($_GET['click_id'])){                          // действие по клику на объявление
         $adsStore->prepareForOut()->display((int)$_GET['click_id']);
         exit();

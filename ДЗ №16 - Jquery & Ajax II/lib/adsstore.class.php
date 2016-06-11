@@ -111,6 +111,8 @@ class AdsStore{
         $smarty->assign('ads_rows',$row);
         return self::$instance;
     }
+    
+    
     public function display() {                                              // вывод на экран
         global $smarty;
         $smarty->display('oop.tpl');
