@@ -11,7 +11,7 @@
                   <th class="active">Действия</th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody id="ads_list">
                  {$ads_rows}
               
               </tbody>

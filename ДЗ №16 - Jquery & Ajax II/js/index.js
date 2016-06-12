@@ -2,8 +2,7 @@ $('document').ready(function () {                                  // устан
     $('a.delete').on('click', function () {                            //всем ссылкам с классом delete привязываем ф-ию on с событием click
         var tr = $(this).closest('tr');                                    //находим ближайший родительский tr
         var id = tr.children('td:first').html();                   //находим первый td в этом tr
-        $('input,select,textarea,checkbox').val('');
-               
+                       
         var number = {"del_ad": id};
         $.getJSON('ajax_controller.php?action=delete',
                 number,
@@ -23,6 +22,7 @@ $('document').ready(function () {                                  // устан
                             $('#container').fadeOut('slow');
                         }, 3000);
                         $(this).remove(); //удаляем строку из DOM
+                        notice_empty();
                         clear_form(); //очищаем поля в форме
 
 
@@ -38,5 +38,16 @@ $('document').ready(function () {                                  // устан
                 .val('')
                 .removeAttr('checked')
                 .removeAttr('selected');
+    };
+    
+    function notice_empty() {
+        if ($('#ads_list').html() == 0) {
+            $('#notice_info').fadeIn();
+        }
+        else if ($('#ads_list').html() != 0) {
+            $('#notice_info').fadeOut('fast');
+        }
     }
+
+    
 });    //  Close ready()

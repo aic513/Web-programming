@@ -110,7 +110,11 @@
                 <div id="container" class="col-sm-offset-2 alert alert-success alert-dismissible" role="alert" style="display:none;">
                     <a style="vertical-align: top;" class="close" onclick="$('#container').fadeOut('slow');"><span style="vertical-align:middle;" aria-hidden="true">&times;</span></a>
                     <div id="container_info"></div>
+                    <div id="notice_info">В базе данных нет объявлений</div>    
                 </div>
+                {*<div id="notice_info" class="col-sm-offset-2 alert alert-info alert-dismissible" role="alert" style="display:none;">В базе данных нет объявлений
+                <a style="vertical-align: top;" class="close" onclick="$('#notice_info').fadeOut('slow');"><span style="vertical-align:middle;" aria-hidden="true">&times;</span></a>
+                </div>*}
                 {include file = 'table.tpl'}
             </div>
         </div>

@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.25-dev, created on 2016-06-11 22:19:15
+<?php /* Smarty version 2.6.25-dev, created on 2016-06-12 15:36:25
          compiled from table.tpl */ ?>
 <div class="table-responsive col-sm-offset-2">
 <table style="font-style:italic; font-family:Consolas;" class="table table-condensed table-hover table-bordered">
@@ -13,7 +13,7 @@
                   <th class="active">Действия</th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody id="ads_list">
                  <?php echo $this->_tpl_vars['ads_rows']; ?>
 
               
