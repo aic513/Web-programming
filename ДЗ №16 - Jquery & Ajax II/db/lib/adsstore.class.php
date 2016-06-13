@@ -39,17 +39,6 @@ class AdsStore{
         return self::$instance;
     }
     
-    public function del($id) {                                                  // удаляет объявление из хранилища и бд
-        if($this->ads[$id]->del()){
-            unset($this->ads[$id]);
-                return true;
-            } else {
-                return false;
-            }
-        }
-
-    
-    
     public function getAllAdsFromDb() {                                         // помещает все объявления из базы в хранилище
         $db = db::instance();
         $all = $db->select('SELECT * FROM `advertisement`');
@@ -94,6 +83,19 @@ class AdsStore{
         $this->ads = array();
         return self::$instance;
     }
+    
+    
+     public function del($id) {                                                  // удаляет объявление из хранилища и бд
+        if ($this->ads[$id]->del()) {
+            unset($this->ads[$id]);
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
+    
+    
     
      public function restart() {  
         header("Location: $_SERVER[SCRIPT_NAME]");

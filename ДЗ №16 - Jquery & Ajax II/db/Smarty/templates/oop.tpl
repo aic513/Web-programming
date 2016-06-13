@@ -103,7 +103,7 @@
                         <div class="col-sm-offset-2 col-sm-10">
                             <button id="addForm_button" type="submit" name="submit" class="btn btn-success">{if $add->getid()}Сохранить{else}Добавить{/if} объявление</button>
                             <a class="btn btn-primary clForm_button">Очистить форму</a>
-                            <button id="clBase_button" type="submit" name="clear_base" class="btn btn-default">Очистить базу</button>
+                            <a class="btn btn-default clBase_button">Очистить базу</a>
                         </div>
                     </div>
                 </form>
@@ -111,6 +111,10 @@
                     <a style="vertical-align: top;" class="close" onclick="$('#container').fadeOut('slow');"><span style="vertical-align:middle;" aria-hidden="true">&times;</span></a>
                     <div id="container_info"></div>
                     <div id="notice_info">В базе данных больше нет объявлений</div>    
+                </div>
+                <div id="container_clearbase" class="col-sm-offset-2 alert alert-success alert-dismissible" role="alert" style="display:none;">
+                    <a style="vertical-align: top;" class="close" onclick="$('#container_clearbase').fadeOut('slow');"><span style="vertical-align:middle;" aria-hidden="true">&times;</span></a>
+                    <div id="container_clearbase_info"></div>
                 </div>
                 {include file = 'table.tpl'}
             </div>

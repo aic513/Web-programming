@@ -29,7 +29,6 @@ $('document').ready(function () {                  // устанавливаем
     var delete_function = function () {                     //определяем функцию удаления
         var tr = $(this).closest('tr');                     //находим ближайший родительский tr
         var id = tr.children('td:first').html();            //находим первый td в этом tr
-
         var number = {"del_ad": id};                       //определяем параметр для ф-ии getJSON
         $.getJSON('ajax_controller.php?action=delete',
                 number,
@@ -55,7 +54,32 @@ $('document').ready(function () {                  // устанавливаем
                 });  // Close get()
     };        //--------------------------------------Удаление объявления CLOSE--------------------------------------------------//
     
-            
+    var clBase_function = function () {
+        var info = {'base': 'is_removed'};
+        $.getJSON('ajax_controller.php?action=clear_base',
+                info,
+                function (response) {
+                    $('#ads_list').fadeOut('slow', function () {          
+                        if (response.status == 'success') {                     
+                            $('#container_clearbase').removeClass('alert-danger').addClass('alert-success');
+                            $('#container_clearbase_info').html(response.message);
+                            $('#container_clearbase').fadeIn('slow');
+                            setTimeout(function () {
+                                $('#container_clearbase').fadeOut('slow');
+                            }, 3000);
+                            $('tbody tr').remove();                             
+                        } else if (response.status == 'error') {
+                            $('#container_clearbase').removeClass('alert-success').addClass('alert-danger');
+                            $('#container_clearbase_info').html(response.message);
+                            $('#container_clearbase').fadeIn('slow');
+                            setTimeout(function () {
+                                $('#container_clearbase').fadeOut('slow');
+                            }, 3000);
+                        }
+                        clear_form();
+                    });
+                });
+    };         
     
     
                
@@ -64,8 +88,8 @@ $('document').ready(function () {                  // устанавливаем
     
     
     $('a.delete').on('click', delete_function); // Удалить объявление (всем ссылкам с классом delete привязываем ф-ию on с событием click)
-    $('a.clForm_button').on('click',clear_form);
- 
+    $('a.clForm_button').on('click',clear_form);//Очищаем форму
+    $('a.clBase_button').on('click',clBase_function);//Очищаем базу
 
 
    

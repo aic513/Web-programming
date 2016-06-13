@@ -32,14 +32,9 @@ if (isset($_POST['submit'])){                                // если наж�
     }
 }
    
-//    elseif (isset($_POST['clear_form'])){
-//        $add = new Ads(0);                   //либо можно реализовать с помощью перезагрузки страницы
-//        $smarty->assign('add', $add);
+//    elseif (isset ($_POST['clear_base'])) {                     // по кнопке очистить базу, удаляем все строки из таблицы ads
+//         $adsStore->clearDB()->restart();
 //    }
-
-    elseif (isset ($_POST['clear_base'])) {                     // по кнопке очистить базу, удаляем все строки из таблицы ads
-         $adsStore->clearDB()->restart();
-    }
 
     elseif (isset($_GET['click_id'])){                          // действие по клику на объявление
         $adsStore->prepareForOut()->display((int)$_GET['click_id']);

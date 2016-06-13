@@ -11,38 +11,21 @@ switch ($_GET['action']){
              $result['message']='Ошибка удаления товара';
          }
          
-         echo json_encode($result);
+        echo json_encode($result);
     break;
     
-//    case 'clear_form':              // очистить форму
-//        
-//        elseif (isset($_POST['clear_form']))
-//        $add = new Ads(0);                   //либо можно реализовать с помощью перезагрузки страницы
-//        $smarty->assign('add', $add);
-//    
-//            if(AdsStore::instance()->clearDB()){
-//                $result['status']='success';
-//                $result['message'] = "База данных успешно очищена";
-//            }else{
-//                $result['status']='error';
-//                $result['message'] = "Ошибка при очистке базы данных.";
-//            }
-//            echo json_encode($result);
-//            break;
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-    default :
+    case 'clear_base':
+            if ($adsStore->clearDB()){
+            $result['status']='success';
+            $result['message']='База данных объявлений очищена успешно';
+        }
+         else{
+             $result['status']='error';
+             $result['message']='Ошибка при очистке базы данных';
+         }
+        echo json_encode($result);
+    break;
+    
+default :
         break;
 }

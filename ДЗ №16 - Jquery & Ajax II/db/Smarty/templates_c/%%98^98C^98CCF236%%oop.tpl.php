@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.25-dev, created on 2016-06-13 15:52:29
+<?php /* Smarty version 2.6.25-dev, created on 2016-06-14 00:00:06
          compiled from oop.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('function', 'html_options', 'oop.tpl', 55, false),)), $this); ?>
@@ -121,7 +121,7 @@ smarty_core_load_plugins(array('plugins' => array(array('function', 'html_option
                         <div class="col-sm-offset-2 col-sm-10">
                             <button id="addForm_button" type="submit" name="submit" class="btn btn-success"><?php if ($this->_tpl_vars['add']->getid()): ?>Сохранить<?php else: ?>Добавить<?php endif; ?> объявление</button>
                             <a class="btn btn-primary clForm_button">Очистить форму</a>
-                            <button id="clBase_button" type="submit" name="clear_base" class="btn btn-default">Очистить базу</button>
+                            <a class="btn btn-default clBase_button">Очистить базу</a>
                         </div>
                     </div>
                 </form>
@@ -129,6 +129,10 @@ smarty_core_load_plugins(array('plugins' => array(array('function', 'html_option
                     <a style="vertical-align: top;" class="close" onclick="$('#container').fadeOut('slow');"><span style="vertical-align:middle;" aria-hidden="true">&times;</span></a>
                     <div id="container_info"></div>
                     <div id="notice_info">В базе данных больше нет объявлений</div>    
+                </div>
+                <div id="container_clearbase" class="col-sm-offset-2 alert alert-success alert-dismissible" role="alert" style="display:none;">
+                    <a style="vertical-align: top;" class="close" onclick="$('#container_clearbase').fadeOut('slow');"><span style="vertical-align:middle;" aria-hidden="true">&times;</span></a>
+                    <div id="container_clearbase_info"></div>
                 </div>
                 <?php $_smarty_tpl_vars = $this->_tpl_vars;
 $this->_smarty_include(array('smarty_include_tpl_file' => 'table.tpl', 'smarty_include_vars' => array()));
