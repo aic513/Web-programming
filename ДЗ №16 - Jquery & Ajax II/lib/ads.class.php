@@ -99,7 +99,7 @@ class Ads {
     
         public function del() {                                                      // удаляет объявление из БД
         $db = db::instance();
-        if($db->query('delete from `advertisement` where id=?d', $this->getid())){
+        if($db->query('DELETE FROM `advertisement` WHERE id=?d', $this->getid())){
             return true;
         }
         else{
