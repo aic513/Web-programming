@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.25-dev, created on 2016-06-14 00:00:06
+<?php /* Smarty version 2.6.25-dev, created on 2016-06-15 21:51:38
          compiled from oop.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('function', 'html_options', 'oop.tpl', 55, false),)), $this); ?>
@@ -21,21 +21,21 @@ smarty_core_load_plugins(array('plugins' => array(array('function', 'html_option
         <div class="row">
             <div class="col-xs-12 col-sm-10 col-md-10">
                 <form class="form-horizontal" id="form" method="POST">
-                    <input type="hidden" name="id" value="<?php echo $this->_tpl_vars['add']->getid(); ?>
+                    <input type="hidden" name="id" id="id" value="<?php echo $this->_tpl_vars['add']->getid(); ?>
 ">
                     <div class="form-group">
-                        <label for="inputEmail3" class="col-sm-2 control-label">Имя</label>
+                        <label for="seller_name" class="col-sm-2 control-label">Имя</label>
                         <div class="col-sm-10">
-                            <input type="text" name="seller_name" class="form-control" id="inputEmail3" placeholder="Введите имя" value="<?php echo $this->_tpl_vars['add']->getsellername(); ?>
+                            <input type="text" name="seller_name" class="form-control" id="seller_name" placeholder="Введите имя" value="<?php echo $this->_tpl_vars['add']->getsellername(); ?>
 "> <?php if ($this->_tpl_vars['error_seller_name']): ?>
                             <font color="red"><?php echo $this->_tpl_vars['error']; ?>
 </font><?php endif; ?>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="inputEmail3" class="col-sm-2 control-label">Почта</label>
+                        <label for="email" class="col-sm-2 control-label">Почта</label>
                         <div class="col-sm-10">
-                            <input type="text" name="email" class="form-control" id="inputEmail3" placeholder="Введите адрес электронной почты" value="<?php echo $this->_tpl_vars['add']->getemail(); ?>
+                            <input type="text" name="email" class="form-control" id="email" placeholder="Введите адрес электронной почты" value="<?php echo $this->_tpl_vars['add']->getemail(); ?>
 ">
                         </div>
                     </div>
@@ -43,22 +43,22 @@ smarty_core_load_plugins(array('plugins' => array(array('function', 'html_option
                         <div class="col-sm-offset-2 col-sm-10">
                             <div class="checkbox">
                                 <label>
-                                    <input type="checkbox" value="1" name="allow_mails" <?php if ($this->_tpl_vars['add']->getallowmails() == 1): ?>checked<?php endif; ?>> <span>Я не хочу получать вопросы по объявлению по e-mail</span>
+                                    <input type="checkbox" id="allow_mails" value="1" name="allow_mails" <?php if ($this->_tpl_vars['add']->getallowmails() == 1): ?>checked<?php endif; ?>> <span>Я не хочу получать вопросы по объявлению по e-mail</span>
                                 </label>
                             </div>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="inputEmail3" class="col-sm-2 control-label">Телефон</label>
+                        <label for="phone" class="col-sm-2 control-label">Телефон</label>
                         <div class="col-sm-10">
-                            <input type="text" name="phone" class="form-control" id="inputEmail3" placeholder="Введите номер телефона" value="<?php echo $this->_tpl_vars['add']->getphone(); ?>
+                            <input type="text" name="phone" class="form-control" id="phone" placeholder="Введите номер телефона" value="<?php echo $this->_tpl_vars['add']->getphone(); ?>
 "> <?php if ($this->_tpl_vars['error_phone']): ?>
                             <font color="red"><?php echo $this->_tpl_vars['error']; ?>
 </font><?php endif; ?>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="inputEmail3" class="col-sm-2 control-label">Город</label>
+                        <label for="city" class="col-sm-2 control-label">Город</label>
                         <div class="col-sm-10">
                             <select style="cursor:pointer; text-align-last: center;font-style:italic;" name="location_id" class="form-control">
                                 <option>Выберите город</option>
@@ -68,7 +68,7 @@ smarty_core_load_plugins(array('plugins' => array(array('function', 'html_option
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="inputEmail3" class="col-sm-2 control-label">Категория</label>
+                        <label for="category" class="col-sm-2 control-label">Категория</label>
                         <div class="col-sm-10">
                             <select style="cursor:pointer;text-align-last: center;font-style:italic;" name="category_id" class="form-control">
                                 <option>Выберите катеригорию</option>
@@ -78,18 +78,18 @@ smarty_core_load_plugins(array('plugins' => array(array('function', 'html_option
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="inputEmail3" class="col-sm-2 control-label">Название</label>
+                        <label for="title" class="col-sm-2 control-label">Название</label>
                         <div class="col-sm-10">
-                            <input type="text" name="title" class="form-control" id="inputEmail3" placeholder="Введите название" maxlength="50" value="<?php echo $this->_tpl_vars['add']->gettitle(); ?>
+                            <input type="text" name="title" class="form-control" id="title" placeholder="Введите название" maxlength="50" value="<?php echo $this->_tpl_vars['add']->gettitle(); ?>
 "> <?php if ($this->_tpl_vars['error_title']): ?>
                             <font color="red"><?php echo $this->_tpl_vars['error']; ?>
 </font><?php endif; ?>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="inputPassword3" class="col-sm-2 control-label">Описание</label>
+                        <label for="description" class="col-sm-2 control-label">Описание</label>
                         <div class="col-sm-10">
-                            <textarea name="description" class="form-control" cols="80" rows="3" maxlength="3000" placeholder="Введите информацию о товаре/услуге"><?php echo $this->_tpl_vars['add']->getdescription(); ?>
+                            <textarea name="description" id="description" class="form-control" cols="80" rows="3" maxlength="3000" placeholder="Введите информацию о товаре/услуге"><?php echo $this->_tpl_vars['add']->getdescription(); ?>
 </textarea>
                             <?php if ($this->_tpl_vars['error_description']): ?>
                             <font color="red"><?php echo $this->_tpl_vars['error']; ?>
@@ -97,9 +97,9 @@ smarty_core_load_plugins(array('plugins' => array(array('function', 'html_option
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="inputEmail3" class="col-sm-2 control-label">Цена</label>
+                        <label for="price" class="col-sm-2 control-label">Цена</label>
                         <div class="col-sm-10">
-                            <input type="text" name="price" class="form-control" id="inputEmail3" placeholder="Введите цену в рублях" value="<?php echo $this->_tpl_vars['add']->getprice(); ?>
+                            <input type="text" name="price" class="form-control" id="price" placeholder="Введите цену в рублях" value="<?php echo $this->_tpl_vars['add']->getprice(); ?>
 "> <?php if ($this->_tpl_vars['error_price']): ?>
                             <font color="red"><?php echo $this->_tpl_vars['error']; ?>
 </font><?php endif; ?>
@@ -109,17 +109,18 @@ smarty_core_load_plugins(array('plugins' => array(array('function', 'html_option
                         <div class="col-sm-offset-2 col-sm-10">
                             <div class="radio-inline">
                                 <label style="cursor:pointer;">
-                                    <input type="radio" <?php if ($this->_tpl_vars['ad']->privat == 0): ?> checked="" <?php endif; ?> value="0" name="privat">Частное лицо</label>
+                                    <input type="radio" <?php if ($this->_tpl_vars['ad']->privat == 0): ?> checked="" <?php endif; ?> value="0" name="privat" id="radio_private">Частное лицо</label>
                             </div>
                             <div class="radio-inline">
                                 <label style="cursor:pointer;">
-                                    <input type="radio" <?php if ($this->_tpl_vars['ad']->privat == 1): ?> checked="" <?php endif; ?> value="1" name="privat">Компания</label>
+                                    <input type="radio" <?php if ($this->_tpl_vars['ad']->privat == 1): ?> checked="" <?php endif; ?> value="1" name="privat" id="radio_company">Компания</label>
                             </div>
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-10">
-                            <button id="addForm_button" type="submit" name="submit" class="btn btn-success"><?php if ($this->_tpl_vars['add']->getid()): ?>Сохранить<?php else: ?>Добавить<?php endif; ?> объявление</button>
+                            <input type="hidden" id="addEdit" value="add">
+                            <a class="btn btn-success submit">Добавить объявление</a>
                             <a class="btn btn-primary clForm_button">Очистить форму</a>
                             <a class="btn btn-default clBase_button">Очистить базу</a>
                         </div>

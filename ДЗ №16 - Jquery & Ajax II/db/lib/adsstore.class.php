@@ -30,6 +30,7 @@ class AdsStore{
             die('Нельзя использовать этот метод в конструкторе классов');
         }
         $this->ads[$add->getid()]=$add;
+
     }
     
     public function save($post) {                                               // сохраняет/создаёт объявление в бд
@@ -94,16 +95,7 @@ class AdsStore{
         }
     }
     
-    
-    
-    
-     public function restart() {  
-        header("Location: $_SERVER[SCRIPT_NAME]");
-        exit;
-    }
-
-
-     public function prepareForOut() {                                           // формирует таблицу с объявлениями для вывода
+    public function prepareForOut() {                                           // формирует таблицу с объявлениями для вывода
         global $smarty;
         $row='';
         foreach ($this->ads as $value) {
@@ -111,7 +103,15 @@ class AdsStore{
             $row.=$smarty->fetch('table_row.tpl');
         }
         $smarty->assign('ads_rows',$row);
+        $smarty->assign('href_self',$_SERVER['PHP_SELF']);
         return self::$instance;
+    }
+    
+    public function getlastAdId() {
+        $ad=end($this->ads);
+        return $ad->getid();
+        
+        
     }
     
     
@@ -120,6 +120,8 @@ class AdsStore{
         $smarty->display('oop.tpl');
     }
 }
+
+
 
     
     

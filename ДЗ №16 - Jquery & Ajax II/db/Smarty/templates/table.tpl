@@ -4,7 +4,7 @@
                 <tr>
                   <th>#id</th>
                   <th style="background-color:#bbeeff;">Имя</th>
-                   <th style="background-color:#EACEAA;">Телефон</th>
+                  <th style="background-color:#EACEAA;">Телефон</th>
                   <th class="success">Название</th>
                   <th class="warning">Описание</th>
                   <th class="danger">Цена</th>

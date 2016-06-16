@@ -4,7 +4,7 @@ class Ads {
                                   //-----Определяем свойства класса Ads----//
                                                     //----OPEN----//
                                                     
-                                  //-----Тип свойств - "public (защищенный)"----//
+                                  //-----Тип свойств - "public"----//
     public $id;
     public $seller_name;
     public $email;

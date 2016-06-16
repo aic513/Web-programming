@@ -17,38 +17,38 @@
         <div class="row">
             <div class="col-xs-12 col-sm-10 col-md-10">
                 <form class="form-horizontal" id="form" method="POST">
-                    <input type="hidden" name="id" value="{$add->getid()}">
+                    <input type="hidden" name="id" id="id" value="{$add->getid()}">
                     <div class="form-group">
-                        <label for="inputEmail3" class="col-sm-2 control-label">Имя</label>
+                        <label for="seller_name" class="col-sm-2 control-label">Имя</label>
                         <div class="col-sm-10">
-                            <input type="text" name="seller_name" class="form-control" id="inputEmail3" placeholder="Введите имя" value="{$add->getsellername()}"> {if $error_seller_name}
+                            <input type="text" name="seller_name" class="form-control" id="seller_name" placeholder="Введите имя" value="{$add->getsellername()}"> {if $error_seller_name}
                             <font color="red">{$error}</font>{/if}
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="inputEmail3" class="col-sm-2 control-label">Почта</label>
+                        <label for="email" class="col-sm-2 control-label">Почта</label>
                         <div class="col-sm-10">
-                            <input type="text" name="email" class="form-control" id="inputEmail3" placeholder="Введите адрес электронной почты" value="{$add->getemail()}">
+                            <input type="text" name="email" class="form-control" id="email" placeholder="Введите адрес электронной почты" value="{$add->getemail()}">
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-10">
                             <div class="checkbox">
                                 <label>
-                                    <input type="checkbox" value="1" name="allow_mails" {if $add->getallowmails() eq 1}checked{/if}> <span>Я не хочу получать вопросы по объявлению по e-mail</span>
+                                    <input type="checkbox" id="allow_mails" value="1" name="allow_mails" {if $add->getallowmails() eq 1}checked{/if}> <span>Я не хочу получать вопросы по объявлению по e-mail</span>
                                 </label>
                             </div>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="inputEmail3" class="col-sm-2 control-label">Телефон</label>
+                        <label for="phone" class="col-sm-2 control-label">Телефон</label>
                         <div class="col-sm-10">
-                            <input type="text" name="phone" class="form-control" id="inputEmail3" placeholder="Введите номер телефона" value="{$add->getphone()}"> {if $error_phone}
+                            <input type="text" name="phone" class="form-control" id="phone" placeholder="Введите номер телефона" value="{$add->getphone()}"> {if $error_phone}
                             <font color="red">{$error}</font>{/if}
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="inputEmail3" class="col-sm-2 control-label">Город</label>
+                        <label for="city" class="col-sm-2 control-label">Город</label>
                         <div class="col-sm-10">
                             <select style="cursor:pointer; text-align-last: center;font-style:italic;" name="location_id" class="form-control">
                                 <option>Выберите город</option>
@@ -57,7 +57,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="inputEmail3" class="col-sm-2 control-label">Категория</label>
+                        <label for="category" class="col-sm-2 control-label">Категория</label>
                         <div class="col-sm-10">
                             <select style="cursor:pointer;text-align-last: center;font-style:italic;" name="category_id" class="form-control">
                                 <option>Выберите катеригорию</option>
@@ -66,24 +66,24 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="inputEmail3" class="col-sm-2 control-label">Название</label>
+                        <label for="title" class="col-sm-2 control-label">Название</label>
                         <div class="col-sm-10">
-                            <input type="text" name="title" class="form-control" id="inputEmail3" placeholder="Введите название" maxlength="50" value="{$add->gettitle()}"> {if $error_title}
+                            <input type="text" name="title" class="form-control" id="title" placeholder="Введите название" maxlength="50" value="{$add->gettitle()}"> {if $error_title}
                             <font color="red">{$error}</font>{/if}
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="inputPassword3" class="col-sm-2 control-label">Описание</label>
+                        <label for="description" class="col-sm-2 control-label">Описание</label>
                         <div class="col-sm-10">
-                            <textarea name="description" class="form-control" cols="80" rows="3" maxlength="3000" placeholder="Введите информацию о товаре/услуге">{$add->getdescription()}</textarea>
+                            <textarea name="description" id="description" class="form-control" cols="80" rows="3" maxlength="3000" placeholder="Введите информацию о товаре/услуге">{$add->getdescription()}</textarea>
                             {if $error_description}
                             <font color="red">{$error}</font>{/if}
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="inputEmail3" class="col-sm-2 control-label">Цена</label>
+                        <label for="price" class="col-sm-2 control-label">Цена</label>
                         <div class="col-sm-10">
-                            <input type="text" name="price" class="form-control" id="inputEmail3" placeholder="Введите цену в рублях" value="{$add->getprice()}"> {if $error_price}
+                            <input type="text" name="price" class="form-control" id="price" placeholder="Введите цену в рублях" value="{$add->getprice()}"> {if $error_price}
                             <font color="red">{$error}</font>{/if}
                         </div>
                     </div>
@@ -91,17 +91,18 @@
                         <div class="col-sm-offset-2 col-sm-10">
                             <div class="radio-inline">
                                 <label style="cursor:pointer;">
-                                    <input type="radio" {if $ad->privat eq 0} checked="" {/if} value="0" name="privat">Частное лицо</label>
+                                    <input type="radio" {if $ad->privat eq 0} checked="" {/if} value="0" name="privat" id="radio_private">Частное лицо</label>
                             </div>
                             <div class="radio-inline">
                                 <label style="cursor:pointer;">
-                                    <input type="radio" {if $ad->privat eq 1} checked="" {/if} value="1" name="privat">Компания</label>
+                                    <input type="radio" {if $ad->privat eq 1} checked="" {/if} value="1" name="privat" id="radio_company">Компания</label>
                             </div>
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-10">
-                            <button id="addForm_button" type="submit" name="submit" class="btn btn-success">{if $add->getid()}Сохранить{else}Добавить{/if} объявление</button>
+                            <input type="hidden" id="addEdit" value="add">
+                            <a class="btn btn-success submit">Добавить объявление</a>
                             <a class="btn btn-primary clForm_button">Очистить форму</a>
                             <a class="btn btn-default clBase_button">Очистить базу</a>
                         </div>
