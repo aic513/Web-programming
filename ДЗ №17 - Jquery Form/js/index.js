@@ -162,24 +162,13 @@ $('document').ready(function () {                  // устанавливаем
         };
     };
    
-   var string = 'ajax_controller.php?action=submit_add&addEdit=' + $('#addEdit').val();
+   
      var options = { 
         success:       showResponse,  // post-submit callback 
-        url: string,         // override for form's 'action' attribute 
+        url: 'ajax_controller.php?action=submit_add&addEdit=' + $('#addEdit').val(),         // override for form's 'action' attribute 
         dataType:  'json'        // 'xml', 'script', or 'json' (expected server response type)
     }; 
-   
-    $('#addEdit')(function(){
-     string = 'ajax_controller.php?action=submit_add&addEdit=' + $('#addEdit').val();
-      options = { 
-        success:       showResponse,  // post-submit callback 
-        url: string,         // override for form's 'action' attribute 
-        dataType:  'json'        // 'xml', 'script', or 'json' (expected server response type)
-    }; 
-    });
-   
     
- 
     $('#form').ajaxForm(options); 
 
                      //--------------------------------Добавление объявления CLOSE-------------------------------------//
