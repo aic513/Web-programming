@@ -55,10 +55,8 @@ switch ($_GET['action']){
                 $result['message'] = 'Товар добавлен успешно';
                 $result['all_fields'] = $err['all_fields'];
                 $adss=$adsStore->save($_POST);
-                
-                $result['actions'] = $_GET['addEdit'];
+                $result['actions'] = $_POST['addEdit']; //изменил на $_POST, чтобы объявления редактировались
                 $result['id']=$adss->getlastAdId();
-                
             }
             echo json_encode($result);
     break;

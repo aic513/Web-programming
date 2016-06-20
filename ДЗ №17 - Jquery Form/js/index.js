@@ -163,9 +163,9 @@ $('document').ready(function () {                  // устанавливаем
     };
    
    
-     var options = { 
+     var options = {            //по умолчанию отправляется методом POST, 
         success:       showResponse,  // post-submit callback 
-        url: 'ajax_controller.php?action=submit_add&addEdit=' + $('#addEdit').val(),         // override for form's 'action' attribute 
+        url: 'ajax_controller.php?action=submit_add',         // override for form's 'action' attribute 
         dataType:  'json'        // 'xml', 'script', or 'json' (expected server response type)
     }; 
     
@@ -221,8 +221,8 @@ $('document').ready(function () {                  // устанавливаем
     });//Очищаем форму
 
     $('a.clBase_button').on('click', clBase_function);//Очищаем базу
-//    $('button.submit').on('click', showResponse);//добавление
-    $('table.table').on('click', 'a.edit_link', edit_function);//редактирование
+    //добавление и редактирование сделано через AjaxForm,работает,спасибо Мише
+    $('table.table').on('click', 'a.edit_link', edit_function);// вывод данных из таблицы в форму
  
     
         

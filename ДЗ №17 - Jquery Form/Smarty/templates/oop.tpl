@@ -95,7 +95,8 @@
                     </div>
                     <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-10">
-                            <input type="hidden" id="addEdit" value="add">
+                             <input type="hidden" name="addEdit" id="addEdit" value="add">  
+                               {*Добавил атрибут name и стал отправлять через $_POST, иначе форма не редактируется*}
                             <button id="submit_add" class="btn btn-success submit">Добавить объявление</button>
                             <a class="btn btn-primary clForm_button">Очистить форму</a>
                             <a class="btn btn-default clBase_button">Очистить базу</a>
